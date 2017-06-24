@@ -24,6 +24,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
+        <div></div>
         <input placeholder="Do you want to chat with the devil?"
                type="text"
                />

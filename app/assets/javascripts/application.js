@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require action_cable
 //= require_tree .
 
-//= require action_cable
 (function() {
   this.Application || (this.Application = {});
 

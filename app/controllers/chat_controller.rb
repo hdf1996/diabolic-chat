@@ -1,5 +1,5 @@
 class ChatController < ApplicationController
-  def index
+  def create
     ActionCable.server.broadcast(
       "chat_room",
       sent_by: 'Paul',
