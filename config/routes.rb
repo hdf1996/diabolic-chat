@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'static#index'
 
-  resources :chat, only: [:index]
+  resources :chats, only: [:create]
 end

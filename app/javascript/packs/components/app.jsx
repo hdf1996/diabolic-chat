@@ -16,7 +16,7 @@ export default class App extends React.Component {
   }
 
   send = (e) => {
-    fetch('/chat?test=test')
+    fetch('/chats?test=test', { method: "POST"})
     e.preventDefault();
     return false;
   }
