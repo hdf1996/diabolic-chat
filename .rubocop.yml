@@ -1,0 +1,21 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - spec/support/spec_helper.rb
+    - spec/rails_helper.rb
+    - db/**/*
+    - docs/**/*
+    - config/**/*
+    - bin/**/*
+    - app/admin/**/*
+    - app/channels/**/*
+
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+LineLength:
+  Max: 99

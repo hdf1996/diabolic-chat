@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+    - 2.3.4
+services:
+  - postgresql
+  - redis-server
+before_install:
+  - "echo '--colour' > ~/.rspec"
+  - "echo 'gem: --no-document' > ~/.gemrc"
+  - gem update --system
+before_script:
+  - psql -c "CREATE USER \"diabolic\" WITH PASSWORD 'diabolic';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"diabolic_test\";" -U postgres
+  - psql -c "CREATE DATABASE \"diabolic_test\" ENCODING 'utf8';" -U postgres
+  - bundle exec rake db:migrate
+script:
+  - bundle exec rspec
+  - bundle exec rubocop app -R --format simple.

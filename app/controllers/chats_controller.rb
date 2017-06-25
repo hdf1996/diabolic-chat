@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
   def create
     ActionCable.server.broadcast(
-      "chat_room",
+      'chat_room',
       sent_by: 'Paul',
       body: 'This is a cool chat app.'
     )

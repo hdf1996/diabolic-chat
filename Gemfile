@@ -20,6 +20,15 @@ gem 'redis'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'bullet'
+  gem 'simplecov', require: false
+  gem "rails-erd"
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'faker'
 end
 
 group :development do
