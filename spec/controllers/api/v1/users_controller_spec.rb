@@ -24,7 +24,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         it 'creates an user' do
           expect do
             post :create, params: { user: user_params }
-          end.to_not change { User.count }
+          end.to_not(change { User.count })
         end
       end
     end
