@@ -3,7 +3,7 @@ import styled, {ThemeProvider} from 'styled-components';
 // import logo from './logo.svg';
 
 const Header = styled.nav`
-  position: fixed;
+  //position: fixed;
   left: 0;
   top: 0;
   height: 100%;
