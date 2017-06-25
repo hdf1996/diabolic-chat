@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import MenuHeader from './MenuHeader'
 
 export default class App extends React.Component {
   componentWillMount () {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
+        <MenuHeader />
         <div></div>
         <input placeholder="Do you want to chat with the devil?"
                type="text"
