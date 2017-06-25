@@ -10,8 +10,8 @@ before_install:
   - gem update --system
 before_script:
   - psql -c "CREATE USER \"diabolic\" WITH PASSWORD 'diabolic';" -U postgres
-  - psql -c "DROP DATABASE IF EXISTS \"diabolic_test\";" -U postgres
-  - psql -c "CREATE DATABASE \"diabolic_test\" ENCODING 'utf8';" -U postgres
+  - psql -c "DROP DATABASE IF EXISTS \"diabolic_chat_test\";" -U postgres
+  - psql -c "CREATE DATABASE \"diabolic_chat_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
 script:
   - bundle exec rspec
