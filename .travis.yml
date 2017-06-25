@@ -14,5 +14,5 @@ before_script:
   - psql -c "CREATE DATABASE \"diabolic_chat_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
 script:
-  - bundle exec rspec --format --simple
-  - bundle exec rubocop app spec -R
+  - bundle exec rspec
+  - bundle exec rubocop app spec -R --format simple
