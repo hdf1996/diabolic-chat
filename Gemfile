@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 gem 'haml-rails'
+gem 'devise'
 gem 'redis'
 
 group :development, :test do
