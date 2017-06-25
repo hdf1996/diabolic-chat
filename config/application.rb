@@ -11,8 +11,12 @@ module DiabolicChat
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.generators do |g|
+      g.skip_routes true
+      %i(scaffold_stylesheet stylesheets javascripts helper route routes view_specs).each do |c|
+        g.send(c, false)
+      end
+    end
+
   end
 end
