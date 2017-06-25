@@ -29,4 +29,24 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       end
     end
   end
+
+  describe '#me' do
+    context 'without tokens' do
+      before { get :me }
+
+      it 'returns not_authenticated' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'with token' do
+      let!(:user) { create(:user) }
+
+      before { get :me }
+
+      it 'returns ok' do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
 end

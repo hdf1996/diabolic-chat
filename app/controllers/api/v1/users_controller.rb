@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      before_action :authenticate_user!, only: [:me]
+
       def create
         user = User.new(user_params)
         if user.save
@@ -8,6 +10,10 @@ module Api
         else
           render json: user.errors, status: :bad_request
         end
+      end
+
+      def me
+        render json: current_user
       end
 
       private
