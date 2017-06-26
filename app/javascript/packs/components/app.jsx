@@ -1,6 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MenuHeader from './MenuHeader'
+import MainChat from './MainChat'
+import styled from 'styled-components';
+
+const MainContainer = styled.main`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 
 export default class App extends React.Component {
   componentWillMount () {
@@ -16,22 +26,14 @@ export default class App extends React.Component {
     })
   }
 
-  send = (e) => {
-    fetch('/chats?test=test', { method: "POST"})
-    e.preventDefault();
-    return false;
-  }
-
   render () {
     return (
-      <div>
+      <MainContainer>
+
         <MenuHeader />
-        <div></div>
-        <input placeholder="Do you want to chat with the devil?"
-               type="text"
-               />
-        <a href="#" onClick={this.send}>Send it!</a>
-      </div>
+        <MainChat />
+
+      </MainContainer>
     )
   }
 };

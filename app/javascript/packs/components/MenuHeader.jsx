@@ -32,7 +32,7 @@ class MenuHeader extends Component {
   render() {
     return (
       <ThemeProvider theme={themeV1}>
-        <Header className="header">
+        <Header>
           <p>
             hola soy un menu
           </p>
