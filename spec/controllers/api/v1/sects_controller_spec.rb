@@ -4,7 +4,7 @@ RSpec.describe Api::V1::SectsController, type: :controller do
   describe '#subscribe' do
     context 'without a valid token' do
       let!(:sect) { create(:sect, max_size: 10) }
-      
+
       before { post :subscribe, params: { id: sect.id } }
 
       it 'returns 401' do

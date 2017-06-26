@@ -7,7 +7,7 @@ module Api
       def subscribe
         SectSubscription.create!(user: current_user, sect: @sect)
         head :created
-      rescue StandardError => e
+      rescue
         head :not_acceptable
       end
 
