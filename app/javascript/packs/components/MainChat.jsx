@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, {ThemeProvider} from 'styled-components';
+import styled from 'styled-components';
 // import logo from './logo.svg';
 
 const ChatContainer = styled.section`
@@ -9,20 +9,8 @@ const ChatContainer = styled.section`
   flex: 1 1 50%;
   display: flex;
   flex-wrap: wrap;
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.color2};
 `;
-
-
-ChatContainer.defaultProps = {
-	theme: {
-		background: 'blue'
-	}
-}
-
-// changin my theme
-const themeV1 = {
-	background: '#1D1F34'
-};
 
 class MainChat extends Component {
 
@@ -34,14 +22,12 @@ class MainChat extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={themeV1}>
         <ChatContainer>
           <input placeholder="Do you want to chat with the devil?"
                  type="text"
                  />
           <a href="#" onClick={this.send}>Send it!</a>
         </ChatContainer>
-      </ThemeProvider>
     );
   }
 

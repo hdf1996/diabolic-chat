@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MenuHeader from './MenuHeader'
+import MenuLeft from './MenuLeft'
 import MainChat from './MainChat'
-import styled from 'styled-components';
+import styled, {ThemeProvider}  from 'styled-components';
 
 const MainContainer = styled.main`
   height: 100%;
@@ -10,6 +10,17 @@ const MainContainer = styled.main`
   display: flex;
   flex-wrap: wrap;
 `;
+
+// changin my theme
+const colorTheme = {
+	color1: "#151424",
+	color2: "#1D1F34"
+};
+// changin my theme
+const darkTheme = {
+	color1: "black",
+	color2: "red"
+};
 
 
 export default class App extends React.Component {
@@ -28,12 +39,14 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <MainContainer>
+      <ThemeProvider theme={colorTheme}>
+        <MainContainer>
 
-        <MenuHeader />
-        <MainChat />
+          <MenuLeft />
+          <MainChat />
 
-      </MainContainer>
+        </MainContainer>
+      </ThemeProvider>
     )
   }
 };
