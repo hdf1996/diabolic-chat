@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable
+  has_many :sect_subscriptions
+  has_many :sects, through: :sect_subscriptions
 
   def generate_access_token
     self.access_token = SecureRandom.hex(16)

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :chats, only: [:create]
   namespace :api do
     namespace :v1 do
+      resources :sects, only: [] do
+        member do
+          post :subscribe
+        end
+      end
+
       resources :users, only: [:create] do
         collection do
           put :authenticate
