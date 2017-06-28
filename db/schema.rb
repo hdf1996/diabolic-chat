@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625223245) do
+ActiveRecord::Schema.define(version: 20170626051134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sect_subscriptions", force: :cascade do |t|
+    t.bigint "sect_id"
+    t.bigint "user_id"
+    t.integer "role", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sect_id"], name: "index_sect_subscriptions_on_sect_id"
+    t.index ["user_id"], name: "index_sect_subscriptions_on_user_id"
+  end
+
+  create_table "sects", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "max_size", default: 10
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,4 +54,6 @@ ActiveRecord::Schema.define(version: 20170625223245) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sect_subscriptions", "sects"
+  add_foreign_key "sect_subscriptions", "users"
 end
