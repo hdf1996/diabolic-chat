@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MenuLeft from './MenuLeft'
+import MenuLeft from './leftSide/MenuLeft'
 import MainChat from './MainChat'
 import styled, {ThemeProvider}  from 'styled-components';
 
@@ -13,8 +13,9 @@ const MainContainer = styled.main`
 
 // changin my theme
 const colorTheme = {
-	color1: "#151424",
-	color2: "#1D1F34"
+	color1: "#18192B",
+	color2: "#1D1F34",
+	color3: "#151424"
 };
 // changin my theme
 const darkTheme = {
