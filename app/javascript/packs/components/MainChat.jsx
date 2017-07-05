@@ -10,12 +10,17 @@ const ChatContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   background: ${props => props.theme.color2};
+  p{
+    color: white;
+  }
 `;
 
 class MainChat extends Component {
 
   send = (e) => {
-    fetch('/chats?test=test', { method: "POST"})
+    fetch('/chats?test=test', {
+      method: "POST"
+    })
     e.preventDefault();
     return false;
   }
@@ -23,10 +28,12 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <input placeholder="Do you want to chat with the devil?"
+          <form onSubmit ={this.send}>
+            <input placeholder="Do you want to chat with the devil?"
                  type="text"
                  />
-          <a href="#" onClick={this.send}>Send it!</a>
+            <input type="submit" value="Send" />
+          </form>
         </ChatContainer>
     );
   }
