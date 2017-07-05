@@ -17,10 +17,11 @@ const ChatContainer = styled.section`
 
 class MainChat extends Component {
 
-  send = (e) => {
-    fetch('/chats?test=test', {
+  send = async (e) => {
+    const response = await fetch('/chats?test=test', {
       method: "POST"
     })
+    const json = await response.json();
     e.preventDefault();
     return false;
   }
@@ -28,7 +29,7 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <form onSubmit ={this.send}>
+          <form onSubmit={this.send}>
             <input placeholder="Do you want to chat with the devil?"
                  type="text"
                  />
