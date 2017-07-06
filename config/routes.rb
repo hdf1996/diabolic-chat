@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:create]
   namespace :api do
     namespace :v1 do
-      resources :sects, only: [] do
+      resources :sects, only: [:index] do
         member do
           post :subscribe
         end

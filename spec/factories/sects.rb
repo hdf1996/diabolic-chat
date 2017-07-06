@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :sect do
-    name 'MyString'
+    name { Faker::Name.first_name }
     max_size { 10 }
   end
 end

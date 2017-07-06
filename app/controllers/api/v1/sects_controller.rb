@@ -4,6 +4,10 @@ module Api
       before_action :authenticate_user!, only: [:subscribe]
       before_action :set_sect, only: [:subscribe]
 
+      def index
+        render json: Sect.all
+      end
+
       def subscribe
         SectSubscription.create!(user: current_user, sect: @sect)
         head :created

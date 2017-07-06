@@ -37,14 +37,17 @@ const Item = styled.li`
 
 
 class ChannelItem extends Component {
-
+  componentWillReceiveProps (props) {
+    this.setState(props);
+    console.log(props)
+  }
 
   render() {
     return (
       <Item>
         <BulletStatus />
         <span className="channel-name">
-          El nombre del channel
+          {this.props.name}
         </span>
         <div className="item-line">
         </div>
