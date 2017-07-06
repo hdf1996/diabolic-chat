@@ -25,18 +25,7 @@ const darkTheme = {
 
 
 export default class App extends React.Component {
-  componentWillMount () {
-    Application.cable.subscriptions.create({
-      channel: "ChatChannel",
-      room: 'chat_room'
-    },
-    {
-      connected: () => { console.log('conected')},
-      received: (d) => {
-        console.log(d)
-      }
-    })
-  }
+  
 
   render () {
     return (

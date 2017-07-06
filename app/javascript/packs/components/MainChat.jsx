@@ -21,6 +21,33 @@ const ChatContainer = styled.section`
 
 class MainChat extends Component {
 
+  constructor(props){
+    super(props);
+    this.state= {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e){
+    this.setState({value: e.target.value});
+  }
+
+  componentWillMount () {
+    Application.cable.subscriptions.create({
+      channel: "ChatChannel",
+      room: 'chat_room'
+    },
+    {
+      connected: () => { console.log('conected')},
+      received: (d) => {
+        //here you change the body of the object from a sect with input's value
+        d.body = this.state.value;
+        console.log(d);
+        //and this setState clears the input field
+        this.setState({value : ''})
+      }
+    })
+  }
+
   send = async (e) => {
     e.preventDefault();
     const response = await fetch('/chats?test=test', {
@@ -36,7 +63,7 @@ class MainChat extends Component {
         <ChatContainer>
           <MessagesList />
           <form onSubmit={this.send}>
-            <input placeholder="Do you want to chat with the devil?"
+            <input value={this.state.value} onChange={this.handleChange} placeholder="Do you want to chat with the devil?"
                  type="text"
                  />
             <input type="submit" value="Send" />
