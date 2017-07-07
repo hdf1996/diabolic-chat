@@ -19,6 +19,7 @@ gem 'devise'
 gem 'redis'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'interactor-rails'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'simplecov', require: false
   gem "rails-erd"
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'faker'
 end
