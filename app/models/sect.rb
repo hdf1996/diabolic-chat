@@ -1,6 +1,7 @@
 class Sect < ApplicationRecord
   has_many :sect_subscriptions
   has_many :users, through: :sect_subscriptions
+  has_many :messages, dependent: :destroy
 
   validates :name, presence: true
   validate :limit_reached

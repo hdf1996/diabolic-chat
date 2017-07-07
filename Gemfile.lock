@@ -101,6 +101,10 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.8.4)
+    interactor (3.1.0)
+    interactor-rails (2.1.1)
+      interactor (~> 3.0)
+      rails (>= 4.2, < 5.2)
     json (2.1.0)
     jsonapi-renderer (0.1.2)
     listen (3.1.5)
@@ -266,6 +270,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   haml-rails
+  interactor-rails
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
   pry-rails

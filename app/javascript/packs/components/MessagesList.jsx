@@ -13,11 +13,22 @@ const MsgList = styled.ul`
 `;
 
 class MessagesList extends Component {
+  constructor () {
+    super();
+    this.state = { messages: [] }
+  }
+  componentWillReceiveProps (props) {
+    this.setState(props)
+  }
 
   render() {
     return (
         <MsgList>
-          <MessageItem newMsg={this.props.newItem} />
+          {
+            this.state.messages.map((message, i) => {
+              return <MessageItem key={i} {...message} />
+            })
+          }
         </MsgList>
     );
   }

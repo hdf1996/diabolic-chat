@@ -1,6 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::SectsController, type: :controller do
+  describe '#chat' do
+    context 'without a valid token' do
+      let!(:sect) { create(:sect, max_size: 10) }
+
+      before { post :chat, params: { id: sect.id } }
+
+      it 'returns 401' do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'with a valid token' do
+      let!(:user) { create :user }
+
+      context 'with a valid sect' do
+        let!(:sect) { create :sect }
+
+        context 'being in the sect' do
+          before { create(:sect_subscription, user: user, sect: sect) }
+
+          context 'with a valid message' do
+            let!(:message_attributes) { attributes_for(:message, sect: sect) }
+
+            it 'creates a new message' do
+              expect do
+                post :chat, params: { id: sect.id, access_token: user.access_token,
+                                      message: message_attributes }
+              end.to change { Message.count }.by(1)
+            end
+          end
+        end
+      end
+    end
+  end
+
   describe '#subscribe' do
     context 'without a valid token' do
       let!(:sect) { create(:sect, max_size: 10) }

@@ -25,8 +25,6 @@ const darkTheme = {
 
 
 export default class App extends React.Component {
-  
-
   render () {
     return (
       <ThemeProvider theme={colorTheme}>

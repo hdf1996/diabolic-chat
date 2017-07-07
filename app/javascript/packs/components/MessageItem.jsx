@@ -11,12 +11,21 @@ const MsgItem = styled.li`
 `;
 
 class MessageItem extends Component {
+  constructor (props) {
+    super()
+    this.state = props
+  }
 
-  render() {
+  componentWillReceiveProps (props) {
+    console.log(props)
+    this.setState(props)
+  }
+
+  render () {
     return (
-        <MsgItem>
-          {this.props.newMsg.sent_by} : {this.props.newMsg.body}
-        </MsgItem>
+      <MsgItem>
+        {this.state.sent_by} : {this.state.body}
+      </MsgItem>
     );
   }
 

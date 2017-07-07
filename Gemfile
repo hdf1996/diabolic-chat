@@ -18,6 +18,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'redis'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'interactor-rails'
 
 group :development, :test do
   gem 'pry-rails'

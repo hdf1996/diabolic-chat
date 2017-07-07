@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :sects, only: [:index] do
         member do
           post :subscribe
+          post :chat
         end
       end
 

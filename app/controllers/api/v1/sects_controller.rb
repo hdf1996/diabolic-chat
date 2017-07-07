@@ -8,6 +8,11 @@ module Api
         render json: Sect.all
       end
 
+      def chat
+        SendMessage.call(params: params)
+        head :ok
+      end
+
       def subscribe
         SectSubscription.create!(user: current_user, sect: @sect)
         head :created
