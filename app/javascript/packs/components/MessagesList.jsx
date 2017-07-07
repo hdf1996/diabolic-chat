@@ -17,7 +17,8 @@ class MessagesList extends Component {
   render() {
     return (
         <MsgList>
-          <MessageItem />
+          {/* <MessageItem /> */}
+          {this.props.newItem.body}
         </MsgList>
     );
   }

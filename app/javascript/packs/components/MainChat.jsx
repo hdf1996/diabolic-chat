@@ -19,18 +19,24 @@ const ChatContainer = styled.section`
   }
 `;
 
+
 class MainChat extends Component {
+
 
   constructor(props){
     super(props);
-    this.state= {value: ''};
+    this.state= {value: '', newItem: ''};
     this.handleChange = this.handleChange.bind(this);
+
+    // this.handleNewMessage = this.handleNewMessage.bind(this);
   }
 
   handleChange(e){
     this.setState({value: e.target.value});
   }
-
+  // handleNewMessage(e){
+  //   this.setState({newItem: e})
+  // }
   componentWillMount () {
     Application.cable.subscriptions.create({
       channel: "ChatChannel",
@@ -41,6 +47,8 @@ class MainChat extends Component {
       received: (d) => {
         //here you change the body of the object from a sect with input's value
         d.body = this.state.value;
+        // d = this.state.newItem;
+        this.setState({newItem : d});
         console.log(d);
         //and this setState clears the input field
         this.setState({value : ''})
@@ -61,7 +69,7 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <MessagesList />
+          <MessagesList newItem ={this.state.newItem} />
           <form onSubmit={this.send}>
             <input value={this.state.value} onChange={this.handleChange} placeholder="Do you want to chat with the devil?"
                  type="text"
