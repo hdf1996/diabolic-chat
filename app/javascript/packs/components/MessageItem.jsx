@@ -15,7 +15,7 @@ class MessageItem extends Component {
   render() {
     return (
         <MsgItem>
-          hola
+          {this.props.newMsg.body}
         </MsgItem>
     );
   }
