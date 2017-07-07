@@ -25,7 +25,7 @@ class MessagesList extends Component {
     return (
         <MsgList>
           {
-            this.state.messages.map((message, i) => {
+            this.state.messages.reverse().map((message, i) => {
               return <MessageItem key={i} {...message} />
             })
           }
