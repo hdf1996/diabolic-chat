@@ -15,7 +15,7 @@ class MessageItem extends Component {
   render() {
     return (
         <MsgItem>
-          {this.props.newMsg.body}
+          {this.props.newMsg.sent_by} : {this.props.newMsg.body}
         </MsgItem>
     );
   }
