@@ -25,7 +25,7 @@ class MainChat extends Component {
   constructor () {
     super();
     this.state = {
-      sectId: 16,
+      sectId: 1,
       messages: []
     }
   }
