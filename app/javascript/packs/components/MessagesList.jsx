@@ -7,7 +7,8 @@ const MsgList = styled.ul`
   background: ${props => props.theme.color2};
   width: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 15px 25px;
   box-sizing: border-box;
 `;
@@ -25,7 +26,7 @@ class MessagesList extends Component {
     return (
         <MsgList>
           {
-            this.state.messages.reverse().map((message, i) => {
+            this.state.messages.map((message, i) => {
               return <MessageItem key={i} {...message} />
             })
           }
