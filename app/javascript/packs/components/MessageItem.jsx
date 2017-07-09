@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const MsgItem = styled.li`
   background: ${props => props.theme.color4};
   color: white;
-  width: 100%;
-  max-width: 250px;
+  min-width: 250px;
+  max-width: 70%;
   padding: 15px;
   box-sizing: border-box;
   margin: 20px 0;
@@ -19,6 +19,19 @@ const MsgItem = styled.li`
     color: white;
     display: block;
     margin: 5px 10px;
+  }
+  &:last-of-type{
+    animation: show-up 0.3s ease;
+  }
+  @keyframes show-up{
+    0%{
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
   }
 `;
 

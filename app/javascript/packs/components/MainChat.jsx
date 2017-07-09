@@ -11,12 +11,29 @@ const ChatContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
   background: ${props => props.theme.color2};
   p{
     color: white;
   }
   form{
-    flex: 0 0 150px;
+    flex: 0 0 70px;
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    input{
+      flex: 1;
+      border-radius: 0;
+      border: none;
+      padding: 10px 20px;
+    }
+    input[type="submit"]{
+      flex: 0;
+      border: none;
+    }
   }
 `;
 
@@ -38,17 +55,19 @@ class MainChat extends Component {
     {
       connected: () => { console.log('conected')},
       received: (item) => {
-        this.state.messages.push(item)
-        this.forceUpdate();
+        // this.state.messages.push(item)
+        // this.forceUpdate();
+        // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
         // if you comment 2 lines above and use the line below it appears to work the same way (?)
-        // this.setState({messages:[...this.state.messages, item]});
+        this.setState({messages:[...this.state.messages, item]});
       }
     })
   }
 
   handleEvent = function (e) {
-    this.send()
     e.preventDefault();
+    this.send()
+    document.getElementById('submit').value= '';
     return false;
   }
 
@@ -66,11 +85,11 @@ class MainChat extends Component {
     return (
         <ChatContainer>
           <MessagesList messages={this.state.messages} />
-          <form onSubmit={this.handleEvent.bind(this)}>
-            <input ref="content"
+          <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
+            <input id="submit" ref="content"
                    placeholder="Do you want to chat with the devil?"
                    type="text"/>
-            <input type="button" value="Send" onClick={this.handleEvent.bind(this)} />
+            <input type="submit" value="Send" onClick={this.handleEvent.bind(this)} />
           </form>
         </ChatContainer>
     );
