@@ -40,6 +40,8 @@ class MainChat extends Component {
       received: (item) => {
         this.state.messages.push(item)
         this.forceUpdate();
+        // if you comment 2 lines above and use the line below it appears to work the same way (?)
+        // this.setState({messages:[...this.state.messages, item]});
       }
     })
   }
