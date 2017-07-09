@@ -46,7 +46,7 @@ class MainChat extends Component {
 
   handleEvent = function (e) {
     this.send()
-    e.preventDefault()
+    e.preventDefault();
     return false;
   }
 

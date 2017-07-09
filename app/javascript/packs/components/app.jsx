@@ -15,7 +15,8 @@ const MainContainer = styled.main`
 const colorTheme = {
 	color1: "#18192B",
 	color2: "#1D1F34",
-	color3: "#151424"
+	color3: "#151424",
+  color4: "#232345"
 };
 // changin my theme
 const darkTheme = {

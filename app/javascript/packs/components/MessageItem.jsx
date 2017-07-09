@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const MsgItem = styled.li`
-  background: white;
-  color: black;
+  background: ${props => props.theme.color4};
+  color: white;
   width: 100%;
   max-width: 250px;
   padding: 15px;
   box-sizing: border-box;
+  margin: 20px 0;
+  align-self: /* if it is my own user it should be flex-end, if it is other user it should be flex-start */ flex-end;
+  span{
+    color: /*here it should be the color assigned to the user*/ red;
+    display: block;
+    margin: 5px 10px;
+  }
+  p{
+    color: white;
+    display: block;
+    margin: 5px 10px;
+  }
 `;
 
 class MessageItem extends Component {
@@ -24,7 +36,12 @@ class MessageItem extends Component {
   render () {
     return (
       <MsgItem>
-        {this.state.sent_by} : {this.state.body}
+        <span>
+          {this.state.sent_by}
+        </span>
+        <p>
+          {this.state.body}
+        </p>
       </MsgItem>
     );
   }
