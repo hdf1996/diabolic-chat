@@ -17,7 +17,7 @@ const ChatContainer = styled.section`
     color: white;
   }
   form{
-    flex: 0 0 70px;
+    flex: 0 0 55px;
     align-self: flex-end;
     width: 100%;
     display: flex;
@@ -66,7 +66,7 @@ class MainChat extends Component {
 
   handleEvent = function (e) {
     e.preventDefault();
-    this.send()
+    this.send();
     document.getElementById('submit').value= '';
     return false;
   }

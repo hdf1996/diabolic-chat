@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const MsgItem = styled.li`
-  background: ${props => props.theme.color4};
-  color: white;
-  min-width: 250px;
-  max-width: 70%;
-  padding: 15px;
-  box-sizing: border-box;
-  margin: 20px 0;
-  align-self: /* if it is my own user it should be flex-end, if it is other user it should be flex-start */ flex-end;
-  span{
-    color: /*here it should be the color assigned to the user*/ red;
-    display: block;
-    margin: 5px 10px;
-  }
-  p{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-end /* if it is my own user it should be flex-end, if it is other user it should be flex-start */;
+  div{
+    background: ${props => props.theme.color4};
     color: white;
-    display: block;
-    margin: 5px 10px;
+    min-width: 250px;
+    max-width: 70%;
+    padding: 15px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    position: relative;
+    border-radius: 25px 0 25px 0;
+    overflow: hidden;
   }
   &:last-of-type{
-    animation: show-up 0.3s ease;
+    div{
+      animation: show-up 0.5s ease;
+      margin-bottom: 100px;
+    }
   }
   @keyframes show-up{
     0%{
@@ -34,6 +35,34 @@ const MsgItem = styled.li`
     }
   }
 `;
+const SentBy = styled.span`
+  color: /*here it should be the color assigned to the user*/ red;
+  display: block;
+  margin: 5px 10px;
+`;
+
+const MsgContent = styled.span`
+  color: white;
+  display: block;
+  margin: 5px 10px;
+  line-height: 25px;
+`;
+
+const ProfilePic = styled.figure`
+  position: absolute;
+  /*this must change to left if the message is not from me*/
+  right: 0;
+  bottom: 0;
+  background: ${props => props.theme.color3};
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 
 class MessageItem extends Component {
   constructor (props) {
@@ -49,12 +78,17 @@ class MessageItem extends Component {
   render () {
     return (
       <MsgItem>
-        <span>
-          {this.state.sent_by}
-        </span>
-        <p>
-          {this.state.body}
-        </p>
+        <div>
+          <ProfilePic>
+            <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />
+          </ProfilePic>
+          <SentBy>
+            {this.state.sent_by}
+          </SentBy>
+          <MsgContent>
+            {this.state.body}
+          </MsgContent>
+        </div>
       </MsgItem>
     );
   }
