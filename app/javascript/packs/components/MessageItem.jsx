@@ -61,6 +61,9 @@ const ProfilePic = styled.figure`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  img{
+    max-width: 100%;
+  }
 `;
 
 

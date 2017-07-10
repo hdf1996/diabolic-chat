@@ -10,10 +10,26 @@ const MsgList = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-end;
-  padding: 15px 12.5%;
+  padding: 15px;
   box-sizing: border-box;
   max-height: calc(100vh - 85px);
   overflow: auto;
+  max-width: 680px;
+  margin: 0 auto;
+  &::-webkit-scrollbar-track{
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  	background-color: ${props => props.theme.color1};
+  	border-radius: 10px;
+  }
+  &::-webkit-scrollbar{
+  	width: 10px;
+  	background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb{
+  	border-radius: 10px;
+    background: linear-gradient(to bottom,  rgba(35,35,69,1) 0%,rgba(161,219,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232345', endColorstr='#00a1dbff',GradientType=0 );
+  }
 `;
 const Overflow = styled.div`
   display: flex;

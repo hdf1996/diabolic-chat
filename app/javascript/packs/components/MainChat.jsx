@@ -87,6 +87,7 @@ class MainChat extends Component {
           <MessagesList messages={this.state.messages} />
           <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
             <input id="submit" ref="content"
+                   autoFocus
                    placeholder="Do you want to chat with the devil?"
                    type="text"/>
             <input type="submit" value="Send" onClick={this.handleEvent.bind(this)} />
