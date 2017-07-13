@@ -9,6 +9,7 @@ const MainContainer = styled.main`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 // changin my theme

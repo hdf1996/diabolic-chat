@@ -61,6 +61,7 @@ const ProfilePic = styled.figure`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin: 0;
   img{
     max-width: 100%;
   }
