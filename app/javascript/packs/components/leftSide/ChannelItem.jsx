@@ -39,7 +39,6 @@ const Item = styled.li`
 class ChannelItem extends Component {
   componentWillReceiveProps (props) {
     this.setState(props);
-    console.log(props)
   }
 
   render() {

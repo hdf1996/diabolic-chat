@@ -53,7 +53,7 @@ class MainChat extends Component {
       room: `${this.state.sectId}_room`
     },
     {
-      connected: () => { console.log('conected')},
+      connected: () => { },
       received: (item) => {
         // this.state.messages.push(item)
         // this.forceUpdate();

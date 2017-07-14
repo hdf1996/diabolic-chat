@@ -28,10 +28,6 @@ const online = {
   opacity: 1
 };
 
-
-
-
-
 class BulletStatus extends Component {
 
   render() {
