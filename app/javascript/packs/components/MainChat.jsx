@@ -61,6 +61,7 @@ class MainChat extends Component {
         // if you comment 2 lines above and use the line below it appears to work the same way (?)
         // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
         // You were right, take this cookie 🍪
+        sendNotification(item.body)
         this.setState({messages:[...this.state.messages, item]});
       }
     })
