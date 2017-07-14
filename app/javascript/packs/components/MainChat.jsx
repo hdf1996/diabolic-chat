@@ -59,6 +59,8 @@ class MainChat extends Component {
         // this.forceUpdate();
         // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
         // if you comment 2 lines above and use the line below it appears to work the same way (?)
+        // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
+        // You were right, take this cookie 🍪
         this.setState({messages:[...this.state.messages, item]});
       }
     })
