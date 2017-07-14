@@ -10,6 +10,7 @@ module DiabolicChat
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.action_cable.allowed_request_origins = ['https://diabolic.chat']
 
     config.generators do |g|
       g.skip_routes true
