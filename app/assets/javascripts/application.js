@@ -26,6 +26,6 @@
   if(userId) {
     url += '?user_id=' + encodeURIComponent(userId);
   }
-  Application.cable = ActionCable.createConsumer();
+  Application.cable = ActionCable.createConsumer(url);
 
 }).call(this);
