@@ -29,10 +29,19 @@ const online = {
 };
 
 class BulletStatus extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      connected: props.connected || false
+    }
+  }
+
+  componentWillReceiveProps (props) { this.setState(props); }
 
   render() {
+    const theme = this.state.connected ? online : offline;
     return (
-      <ThemeProvider theme={offline}>
+      <ThemeProvider theme={theme}>
         <Bullet />
       </ThemeProvider>
     );

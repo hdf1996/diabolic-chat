@@ -37,6 +37,17 @@ const Item = styled.li`
 
 
 class ChannelItem extends Component {
+  constructor (props) {
+    super();
+    this.state = {
+      id: props.id || -1,
+      name: props.name || '',
+      unreadMessagesCount: props.unreadMessagesCount || 0,
+      connected: props.connected || false,
+      type: props.type || ''
+    }
+  }
+
   componentWillReceiveProps (props) {
     this.setState(props);
   }
@@ -44,7 +55,7 @@ class ChannelItem extends Component {
   render() {
     return (
       <Item>
-        <BulletStatus />
+        <BulletStatus connected={this.state.connected}/>
         <span className="channel-name">
           {this.props.name}
         </span>
