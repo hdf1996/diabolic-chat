@@ -1,7 +1,7 @@
 module Api
   module V1
     class SectsController < ApplicationController
-      before_action :authenticate_user!, only: [:subscribe]
+      before_action :authenticate_user!, only: %i[subscribe chat]
       before_action :set_sect, only: [:subscribe]
 
       def index

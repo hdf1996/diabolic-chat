@@ -81,7 +81,8 @@ class MainChat extends Component {
     form.append("message[content]", this.refs.content.value);
     const response = await fetch(`/api/v1/sects/${this.state.sectId}/chat`, {
       body: form,
-      method: "POST"
+      method: "POST",
+      credentials: "same-origin"
     })
     const json = await (await response);
   }
