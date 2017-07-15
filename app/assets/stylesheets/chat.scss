@@ -36,7 +36,7 @@ html, body{
   margin-top: 50px;
   .input-container{
     display: block;
-    margin: 40px 0;
+    margin: 15px 0;
     position: relative;
     label{
       position: relative;
@@ -44,25 +44,30 @@ html, body{
       align-items: flex-end;
       overflow: hidden;
       height: 70px;
+      padding-bottom: 5px;
     }
     span{
       position: absolute;
-      bottom: 15px;
+      bottom: 20px;
       left: 0;
       transform: translate(10px, 0);
       transition: 0.3s ease;
       opacity: 0.5;
+      transform-origin: left;
     }
     input{
-      background: #ececec;
+      background: #f6f6f6;
       border: none;
       width: 100%;
       box-sizing: border-box;
       padding: 12.5px;
       max-width: 320px;
-
+      &:invalid{
+        outline: none;
+        box-shadow: none;
+      }
       ~.quiet-label{
-        transform: translate(0, -30px);
+        transform: translate(0, -30px) scale(0.8);
         color: $color1;
         opacity: 1;
       }
@@ -94,7 +99,7 @@ html, body{
     }
     input:focus{
       ~span{
-        transform: translate(0, -30px);
+        transform: translate(0, -30px) scale(0.8);
         color: $color1;
         opacity: 1;
       }
@@ -110,7 +115,6 @@ html, body{
   h2{
     font-size: 3em;
     margin: 25px 0;
-    margin-bottom: 50px;
     color: $color1;
   }
   button{
@@ -121,6 +125,7 @@ html, body{
     width: 100%;
     max-width: 150px;
     text-align: center;
+    cursor: pointer;
     &:hover{
       background: lighten(#232345, 30);
     }
