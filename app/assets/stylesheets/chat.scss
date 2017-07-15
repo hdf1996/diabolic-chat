@@ -27,7 +27,6 @@ html, body{
 }
 
 
-
 .register-form{
   background: lightgray;
   flex: 0 0 50%;
@@ -42,15 +41,6 @@ html, body{
       left: 0;
       transform: translate(10px, 0);
       transition: 0.3s ease;
-    }
-    p{
-      opacity: 0;
-      display: block;
-      text-align: center;
-      font-size: 0.75em;
-      transition: 0.3s ease;
-      max-width: 320px;
-      margin-top: 5px;
     }
     input{
       background: #ececec;
@@ -68,9 +58,11 @@ html, body{
         transform: translate(0, -30px);
         color:black;
       }
-      ~p{
-        opacity: 1;
-      }
     }
+  }
+  h2{
+    font-size: 3em;
+    margin: 25px 0;
+    margin-bottom: 50px;
   }
 }
