@@ -29,7 +29,7 @@
         <label>
           <input required name="user[email]" type="text"/>
           <span>
-            email
+            Username
           </span>
           <div class="input-line"></div>
         </label>
@@ -99,8 +99,27 @@
 
 
   <script type="text/javascript">
+
+
     // this is for the label animation
     var inputs_quantity= document.querySelectorAll('.input-container  input');
+
+    //when it loads
+    function loadLabel(){
+
+      for(n=0; n<inputs_quantity.length; n++){
+        var inputs= document.querySelectorAll('.input-container  input');
+          if(inputs[n].value != ""){
+            inputs[n].nextElementSibling.setAttribute('class', 'quiet-label');
+          }
+          else{
+            inputs[n].nextElementSibling.setAttribute('class', '');
+          }
+        }
+    }
+    loadLabel();
+
+
 
     for(n=0; n<inputs_quantity.length; n++){
       var inputs= document.querySelectorAll('.input-container  input');
