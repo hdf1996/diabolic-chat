@@ -53,12 +53,17 @@ class MainChat extends Component {
       room: `${this.state.sectId}_room`
     },
     {
-      connected: () => { console.log('conected')},
+      connected: () => { },
       received: (item) => {
         // this.state.messages.push(item)
         // this.forceUpdate();
         // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
         // if you comment 2 lines above and use the line below it appears to work the same way (?)
+        // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
+        // You were right, take this cookie 🍪
+        if(item.user_id !== this.props.currentUser.id) {
+          sendNotification(item.body)
+        }
         this.setState({messages:[...this.state.messages, item]});
       }
     })
@@ -67,7 +72,7 @@ class MainChat extends Component {
   handleEvent = function (e) {
     e.preventDefault();
     this.send();
-    document.getElementById('submit').value= '';
+    this.refs.content.value = '';
     return false;
   }
 
@@ -86,7 +91,7 @@ class MainChat extends Component {
         <ChatContainer>
           <MessagesList messages={this.state.messages} />
           <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
-            <input id="submit" ref="content"
+            <input ref="content"
                    autoFocus
                    placeholder="Do you want to chat with the devil?"
                    type="text"/>

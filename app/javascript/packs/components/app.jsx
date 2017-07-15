@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MenuLeft from './leftSide/MenuLeft'
 import MainChat from './MainChat'
+import NotificationBar from './NotificationBar'
 import styled, {ThemeProvider}  from 'styled-components';
-
+import './notifications'
 const MainContainer = styled.main`
   height: 100%;
   width: 100%;
@@ -27,13 +28,22 @@ const darkTheme = {
 
 
 export default class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      currentUser: {
+        id: 1
+      }
+    }
+  }
+
   render () {
     return (
       <ThemeProvider theme={colorTheme}>
         <MainContainer>
-
+          <NotificationBar/>
           <MenuLeft />
-          <MainChat />
+          <MainChat currentUser={this.state.currentUser}/>
 
         </MainContainer>
       </ThemeProvider>

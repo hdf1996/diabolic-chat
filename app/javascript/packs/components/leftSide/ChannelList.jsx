@@ -15,17 +15,7 @@ class ChannelList extends Component {
   constructor () {
     super();
     this.state = {
-      channels: [{
-        id: 3,
-        name: '#LosPibesDeLaVia',
-        unreadMessagesCount: 99,
-        type: 'group'
-      }, {
-        id: 4,
-        name: '#LosPibesDeLaVia',
-        unreadMessagesCount: 99,
-        type: 'direct'
-      }]
+      channels: []
     }
   }
 
@@ -35,9 +25,11 @@ class ChannelList extends Component {
     this.setState({
       channels: data.map((data) => {
         return {
+          key: data.id,
           id: data.id,
           name: data.name,
           unreadMessagesCount: data.unread_messages_count,
+          connected: data.connected,
           type: data.type
         }
       })
