@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static#index'
 
-  resources :chats, only: [:index]
+  # Watermelon here
+  # We will need to kill this routes in the future
+  resources :users, only: [:create]
+  # Watermelon out
+
+  authenticate :user do
+    resources :chats, only: [:index]
+  end
   namespace :api do
     namespace :v1 do
       resources :sects, only: [:index] do
