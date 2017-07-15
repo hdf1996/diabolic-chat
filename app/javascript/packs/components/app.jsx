@@ -36,9 +36,7 @@ export default class App extends React.Component {
     }
   }
 
-  componentWillMount () {
-    window.checkUser(this);
-  }
+  componentWillMount () { window.checkUser(this); }
 
   render () {
     return (
