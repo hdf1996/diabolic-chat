@@ -18,43 +18,81 @@
     </figure>
 
   </section>
-  <form class="register-form" action="<%= users_path %>" method="post">
-    <h2>Start now</h2>
-    <div class="input-container">
-      <label>
-        <input name="user[email]" type="email" />
-        <span>
-          My email
-        </span>
-        <div class="input-line"></div>
-      </label>
 
-    </div>
+  <section class="form-field">
 
-    <div class="input-container">
-      <label>
-        <input required name="user[username]" type="text"/>
-        <span>
-          Hi! my username is
-        </span>
-        <div class="input-line"></div>
-      </label>
-    </div>
+    <form class="login-form" action="<%= users_path %>" method="post">
+      <h2>Login</h2>
 
-    <div class="input-container">
-      <label>
-        <input required name="user[password]" type="password" />
-        <span>
-          My password is
-        </span>
-        <div class="input-line"></div>
-      </label>
-    </div>
+      <div class="input-container">
+        <label>
+          <input required name="user[username]" type="text"/>
+          <span>
+            Username
+          </span>
+          <div class="input-line"></div>
+        </label>
+      </div>
 
-    <button type="submit" name="submit">
-      Register
-    </button>
-  </form>
+      <div class="input-container">
+        <label>
+          <input required name="user[password]" type="password" />
+          <span>
+            Password
+          </span>
+          <div class="input-line"></div>
+        </label>
+      </div>
+
+      <button type="submit" name="submit">
+        Enter
+      </button>
+    </form>
+
+
+    <form class="register-form" action="<%= users_path %>" method="post">
+      <h2>Start now</h2>
+      <div class="input-container">
+        <label>
+          <input name="user[email]" type="email" />
+          <span>
+            My email
+          </span>
+          <div class="input-line"></div>
+        </label>
+
+      </div>
+
+      <div class="input-container">
+        <label>
+          <input required name="user[username]" type="text"/>
+          <span>
+            Hi! my username is
+          </span>
+          <div class="input-line"></div>
+        </label>
+      </div>
+
+      <div class="input-container">
+        <label>
+          <input required name="user[password]" type="password" />
+          <span>
+            My password is
+          </span>
+          <div class="input-line"></div>
+        </label>
+      </div>
+
+      <button type="submit" name="submit">
+        Register
+      </button>
+    </form>
+
+
+  </section>
+
+
+
 
 
   <script type="text/javascript">
