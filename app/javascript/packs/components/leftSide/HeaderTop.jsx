@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 
 const Header = styled.nav`
   display: flex;
@@ -47,7 +47,7 @@ class HeaderTop extends Component {
           Sign up
         </button>
 
-        {isVisible == "visible" ? <SignUp /> : null }
+        {/* {isVisible == "visible" ? <SignUp /> : null } */}
 
 
 
