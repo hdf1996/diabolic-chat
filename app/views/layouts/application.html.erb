@@ -15,9 +15,6 @@
       window.AppConfig = {
         WEBSOCKET_HOST: "<%= ENV['WEBSOCKET_HOST'] %>",
         WEBSOCKET_PATH: "<%= ActionCable.server.config.mount_path %>",
-      <% if user_signed_in? %>
-        WEBSOCKET_USER_ID_SECRET: "<%= signed_user_id %>",
-      <% end %>
       }
     </script>
     <%= javascript_include_tag 'application' %>
