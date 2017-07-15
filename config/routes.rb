@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static#index'
 
-  resources :chats, only: [:create]
+  resources :chats, only: [:index]
   namespace :api do
     namespace :v1 do
       resources :sects, only: [:index] do
