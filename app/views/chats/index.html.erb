@@ -1,1 +1,12 @@
+<script>
+window.checkUser = (context) => {
+  context.setState({
+    currentUser: <%=
+    %i[id email username].each_with_object({}) do |i, o|
+    o[i] = current_user.send(i)
+    end.to_json.html_safe
+    %>
+  })
+}
+</script>
 <%= javascript_pack_tag 'application' %>

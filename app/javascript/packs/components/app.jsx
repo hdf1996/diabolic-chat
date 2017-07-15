@@ -26,16 +26,17 @@ const darkTheme = {
 	color2: "red"
 };
 
-
 export default class App extends React.Component {
   constructor () {
     super()
     this.state = {
       currentUser: {
-        id: 1
+        id: -1
       }
     }
   }
+
+  componentWillMount () { window.checkUser(this); }
 
   render () {
     return (

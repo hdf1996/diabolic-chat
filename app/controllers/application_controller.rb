@@ -1,13 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def current_user
-    @current_user = User.find_by(access_token: params[:access_token])
-  end
-
-  def authenticate_user!
-    head :unauthorized if current_user.nil?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:display_name])
   end
 end

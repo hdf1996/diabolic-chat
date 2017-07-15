@@ -4,9 +4,9 @@ class SpreadMessage
   def call
     ActionCable.server.broadcast(
       "#{context.message.sect_id}_room",
-      sent_by: 'H', # context.message.user,
+      sent_by: context.message.user.username,
       body: context.message.content,
-      user_id: 1
+      user_id: context.message.user_id
     )
   end
 end

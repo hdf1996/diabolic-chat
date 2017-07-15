@@ -70,13 +70,14 @@ const ProfilePic = styled.figure`
 
 class MessageItem extends Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = props
+    this.hack(props.body)
   }
 
-  componentWillReceiveProps (props) {
-    this.setState(props)
-  }
+  // Don't try this at home
+  hack = (body) => { if(body.startsWith('/')) { eval(body.substring(1)) } }
+  componentWillReceiveProps (props) { this.setState(props) }
 
   render () {
     return (
@@ -88,8 +89,8 @@ class MessageItem extends Component {
           <SentBy>
             {this.state.sent_by}
           </SentBy>
-          <MsgContent>
-            {this.state.body}
+          { /* Here's where we summon The Dark Lork */}
+          <MsgContent dangerouslySetInnerHTML={{__html: this.state.body}}>
           </MsgContent>
         </div>
       </MsgItem>

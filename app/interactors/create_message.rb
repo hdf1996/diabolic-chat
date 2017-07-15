@@ -8,8 +8,8 @@ class CreateMessage
   private
 
   def message_params
-    context.params.require(:message).permit(:content, :user_id)
+    context.params.require(:message).permit(:content)
            .merge(sect_id: context.params.fetch(:id))
-    # TODO: Here we need to add the current user
+           .merge(user_id: context.user_id)
   end
 end

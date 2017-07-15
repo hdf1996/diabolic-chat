@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: :registrations
+  }
   root 'static#index'
-
-  # Watermelon here
-  # We will need to kill this routes in the future
-  resources :users, only: [:create]
-  # Watermelon out
 
   authenticate :user do
     resources :chats, only: [:index]

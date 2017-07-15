@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706020140) do
+ActiveRecord::Schema.define(version: 20170715175226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20170706020140) do
     t.bigint "sect_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["sect_id"], name: "index_messages_on_sect_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "sect_subscriptions", force: :cascade do |t|
@@ -65,12 +67,14 @@ ActiveRecord::Schema.define(version: 20170706020140) do
     t.string "nickname"
     t.string "avatar"
     t.string "access_token"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "contents", "sects"
   add_foreign_key "messages", "sects"
+  add_foreign_key "messages", "users"
   add_foreign_key "sect_subscriptions", "sects"
   add_foreign_key "sect_subscriptions", "users"
 end

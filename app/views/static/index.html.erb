@@ -21,14 +21,15 @@
 
   <section class="form-field">
 
-    <form class="login-form" action="<%= users_path %>" method="post">
+    <form class="login-form" action="<%= user_session_path %>" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <h2>Login</h2>
 
       <div class="input-container">
         <label>
-          <input required name="user[username]" type="text"/>
+          <input required name="user[email]" type="text"/>
           <span>
-            Username
+            email
           </span>
           <div class="input-line"></div>
         </label>
@@ -50,7 +51,9 @@
     </form>
 
 
-    <form class="register-form" action="<%= users_path %>" method="post">
+    <form class="register-form" action="<%= user_registration_path %>" method="post">
+
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <h2>Start now</h2>
       <div class="input-container">
         <label>
