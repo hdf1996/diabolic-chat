@@ -15,11 +15,11 @@
 
 
   </section>
-  <form class="register-form" action="index.html" method="post">
+  <form class="register-form" action="<%= users_path %>" method="post">
     <h2>Start now</h2>
     <div class="input-container">
       <label>
-        <input type="email" />
+        <input name="user[email]" type="email" />
         <span>
           My email
         </span>
@@ -30,9 +30,9 @@
 
     <div class="input-container">
       <label>
-        <input required type="text"/>
+        <input required name="user[username]" type="text"/>
         <span>
-          Hi! my name is
+          Hi! my username is
         </span>
         <div class="input-line"></div>
       </label>
@@ -40,7 +40,7 @@
 
     <div class="input-container">
       <label>
-        <input required type="password" />
+        <input required name="user[password]" type="password" />
         <span>
           My password is
         </span>
