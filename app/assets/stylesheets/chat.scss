@@ -1,3 +1,76 @@
 // Place all the styles related to the chat controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#logo{
+  width: 150px;
+  height: 200px;
+}
+
+html, body{
+  height: 100%;
+}
+
+.main-container{
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.main-content{
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 50%;
+  .logo-container{
+    text-align: center;
+  }
+}
+
+
+
+.register-form{
+  background: lightgray;
+  flex: 0 0 50%;
+  margin-top: 50px;
+  .input-container{
+    display: block;
+    margin: 40px 0;
+    position: relative;
+    span{
+      position: absolute;
+      top: 10px;
+      left: 0;
+      transform: translate(10px, 0);
+      transition: 0.3s ease;
+    }
+    p{
+      opacity: 0;
+      display: block;
+      text-align: center;
+      font-size: 0.75em;
+      transition: 0.3s ease;
+      max-width: 320px;
+      margin-top: 5px;
+    }
+    input{
+      background: #ececec;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12.5px;
+      max-width: 320px;
+      ~.quiet-label{
+        transform: translate(0, -30px);
+      }
+    }
+    input:focus{
+      ~span{
+        transform: translate(0, -30px);
+        color:black;
+      }
+      ~p{
+        opacity: 1;
+      }
+    }
+  }
+}
