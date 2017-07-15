@@ -17,7 +17,7 @@ class NotificationBar extends Component {
     if (this.ableToAsk()) {
       Notification.requestPermission((permission) => {
         if (permission === "granted") {
-          var notification = sendNotification("Welcome to the hell!");
+          sendNotification("Welcome to the hell!");
         }
         this.setState({showDialog: false});
       });

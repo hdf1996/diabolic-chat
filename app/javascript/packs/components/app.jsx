@@ -28,6 +28,14 @@ const darkTheme = {
 
 
 export default class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      currentUser: {
+        id: 1
+      }
+    }
+  }
 
   render () {
     return (
@@ -35,7 +43,7 @@ export default class App extends React.Component {
         <MainContainer>
           <NotificationBar/>
           <MenuLeft />
-          <MainChat />
+          <MainChat currentUser={this.state.currentUser}/>
 
         </MainContainer>
       </ThemeProvider>
