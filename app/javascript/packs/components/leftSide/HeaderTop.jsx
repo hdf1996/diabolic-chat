@@ -43,9 +43,9 @@ class HeaderTop extends Component {
           Profile
         </button>
 
-        <button onClick={this.signUpModal}>
+        {/* <button onClick={this.signUpModal}>
           Sign up
-        </button>
+        </button> */}
 
         {/* {isVisible == "visible" ? <SignUp /> : null } */}
 
