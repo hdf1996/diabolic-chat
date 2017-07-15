@@ -9,7 +9,7 @@ module Api
       end
 
       def chat
-        SendMessage.call(params: params)
+        SendMessage.call(params: params, user_id: current_user.id)
         head :ok
       end
 
