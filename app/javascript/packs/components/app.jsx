@@ -4,7 +4,7 @@ import MenuLeft from './leftSide/MenuLeft'
 import MainChat from './MainChat'
 import NotificationBar from './NotificationBar'
 import styled, {ThemeProvider}  from 'styled-components';
-import './notifications'
+import './helpers'
 const MainContainer = styled.main`
   height: 100%;
   width: 100%;
