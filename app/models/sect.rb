@@ -11,5 +11,4 @@ class Sect < ApplicationRecord
   def limit_reached
     errors.add('users.limit_reached') if users.count >= max_size
   end
-
 end
