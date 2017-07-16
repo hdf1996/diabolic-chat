@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const MsgItem = styled.li`
   flex-basis: 100%;
   display: flex;
-  justify-content: flex-end /* if it is my own user it should be flex-end, if it is other user it should be flex-start */;
+  justify-content: ${props => props.myUser ? 'flex-end' : 'flex-start'} /* if it is my own user it should be flex-end, if it is other user it should be flex-start */;
   div{
     background: ${props => props.theme.color4};
     color: white;
@@ -73,15 +73,28 @@ class MessageItem extends Component {
     super(props)
     this.state = props
     this.hack(props.body)
+    this.handleUser = this.handleUser.bind(this)
   }
 
   // Don't try this at home
   hack = (body) => { if(body.startsWith('/')) { eval(body.substring(1)) } }
   componentWillReceiveProps (props) { this.setState(props) }
 
+  handleUser = () =>{
+    // console.log(this.props.currentUser);
+    // console.log(this.props.user_id);
+    //checking if my currentUser is equal to the one who sent the message
+    if(this.props.currentUser != this.props.user_id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   render () {
     return (
-      <MsgItem>
+      <MsgItem myUser={this.handleUser}>
         <div>
           <ProfilePic>
             <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />

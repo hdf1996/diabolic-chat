@@ -110,11 +110,11 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <MessagesList messages={this.state.messages} />
+          <MessagesList currentUser={this.props.currentUser.id} messages={this.state.messages} />
           <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
             <input ref="content"
                    autoFocus
-                   placeholder="Do you want to chat with the devil?"
+                   placeholder="Write a message"
                    type="text"/>
             <input type="submit" value="Send" onClick={this.handleEvent.bind(this)} />
           </form>

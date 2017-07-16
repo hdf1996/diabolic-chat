@@ -57,9 +57,10 @@ class ConversationItem extends Component {
 
   bullet = () => {
     if(this.state.type == 'Channel') {
-      return <div>C</div>;
+      // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
+      return <BulletStatus type="channel" connected={this.state.connected}/>;
     } else {
-      return <BulletStatus connected={this.state.connected}/>
+      return <BulletStatus type="direct" connected={this.state.connected}/>
     }
   }
 
@@ -68,7 +69,6 @@ class ConversationItem extends Component {
   }
 
   render() {
-    // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
     return (
       <Item onClick={this.props.onClick} className={this.state.selected ? 'selected' : ''}>
         {this.bullet()}
