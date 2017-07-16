@@ -68,7 +68,6 @@ class ConversationItem extends Component {
   }
 
   render() {
-    // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
     return (
       <Item onClick={this.props.onClick} className={this.state.selected ? 'selected' : ''}>
         {this.bullet()}

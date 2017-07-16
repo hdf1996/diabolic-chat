@@ -21,6 +21,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'interactor-rails'
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-rails'
