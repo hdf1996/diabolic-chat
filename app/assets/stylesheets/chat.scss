@@ -23,12 +23,12 @@ html, body{
   flex-wrap: wrap;
   flex-direction: column;
   flex: 0 0 50%;
+  justify-content: center;
   background: $color2;
   .logo-container{
     text-align: center;
     align-self: center;
     width: 100%;
-    margin-top: 12.5%;
     img{
       width: 120px;
     }
@@ -299,5 +299,7 @@ html, body{
   }
   button{
     margin-left: 10px;
+    margin-top: 19px;
+    height: 42px;
   }
 }
