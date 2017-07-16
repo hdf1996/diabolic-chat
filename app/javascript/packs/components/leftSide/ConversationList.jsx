@@ -45,7 +45,10 @@ class ConversationList extends Component {
       <List>
         {
           this.state.conversations.map((conversation) => {
-            return <ConversationItem key={conversation.id} {...conversation}/>
+            return <ConversationItem
+                      key={conversation.id}
+                      selected={conversation.id === this.props.currentConversationId}
+                      {...conversation} />
           })
         }
       </List>

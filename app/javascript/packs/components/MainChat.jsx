@@ -39,10 +39,10 @@ const ChatContainer = styled.section`
 
 
 class MainChat extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      sectId: 1,
+      conversationId: props.currentConversationId || -1,
       messages: []
     }
   }
@@ -50,7 +50,7 @@ class MainChat extends Component {
   componentWillMount () {
     Application.cable.subscriptions.create({
       channel: "ChatChannel",
-      room: `${this.state.sectId}_room`
+      room: `${this.state.conversationId}_room`
     },
     {
       connected: () => { },
@@ -69,6 +69,12 @@ class MainChat extends Component {
     })
   }
 
+  componentWillReceiveProps (props) {
+    this.setState({
+      conversationId: props.currentConversationId
+    })
+  }
+
   handleEvent = function (e) {
     e.preventDefault();
     this.send();
@@ -79,12 +85,18 @@ class MainChat extends Component {
   send = async () => {
     var form = new FormData();
     form.append("message[content]", this.refs.content.value);
-    const response = await fetch(`/api/v1/sects/${this.state.sectId}/chat`, {
+    const response = await fetch(`/api/v1/sects/${this.state.conversationId}/chat`, {
       body: form,
       method: "POST",
       credentials: "same-origin"
     })
     const json = await (await response);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      conversationId: props.currentConversationId
+    })
   }
 
   render() {

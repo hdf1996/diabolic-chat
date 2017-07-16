@@ -32,7 +32,8 @@ export default class App extends React.Component {
     this.state = {
       currentUser: {
         id: -1
-      }
+      },
+      currentConversationId: 1
     }
   }
 
@@ -43,8 +44,11 @@ export default class App extends React.Component {
       <ThemeProvider theme={colorTheme}>
         <MainContainer>
           <NotificationBar/>
-          <MenuLeft />
-          <MainChat currentUser={this.state.currentUser}/>
+          <MenuLeft
+            currentConversationId={this.state.currentConversationId} />
+          <MainChat
+            currentConversationId={this.state.currentConversationId}
+            currentUser={this.state.currentUser}/>
 
         </MainContainer>
       </ThemeProvider>
