@@ -5,14 +5,40 @@ const NotificationContainer = styled.div`
   position: fixed;
   bottom: 120px;
   z-index: 999;
-  left: calc(50% - 175px + 125px);
+  left: calc(50% - 325px + 125px);
   width: 100%;
-  max-width: 350px;
+  max-width: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 50px;
   color: white;
+  > div{
+    width: 100%;
+    article{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2{
+        margin-right: 5px;
+      }
+      button{
+        background: ${props => props.theme.color4};
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        max-width: 120px;
+        text-align: center;
+        cursor: pointer;
+        margin-left: 10px;
+        &:hover{
+          background: lighten(${props => props.theme.color4}, 30);
+        }
+      }
+    }
+  }
 `;
 
 class NotificationBar extends Component {
@@ -55,7 +81,7 @@ class NotificationBar extends Component {
                 return (
                   <article>
 
-                    <h2>Do you want notifications?</h2>
+                    <h2>Do you want to activate browser notifications?</h2>
                     <button onClick={this.askPermission}>
                       Yes
                     </button>
