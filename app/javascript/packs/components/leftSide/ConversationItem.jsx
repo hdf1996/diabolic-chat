@@ -63,13 +63,17 @@ class ConversationItem extends Component {
     }
   }
 
+  name = () => {
+    return this.state.type == 'Channel' ? `#${this.props.name}` : this.props.name
+  }
+
   render() {
     // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
     return (
       <Item onClick={this.props.onClick} className={this.state.selected ? 'selected' : ''}>
         {this.bullet()}
         <span className="channel-name">
-          {this.props.name}
+          {this.name()}
         </span>
         <div className="item-line">
         </div>
