@@ -1,6 +1,6 @@
 <script>
-window.checkUser = (context) => {
-  context.setState({
+window.checkUser = () => {
+  window.appComponent.setState({
     currentUser: <%=
     %i[id email username].each_with_object({}) do |i, o|
     o[i] = current_user.send(i)

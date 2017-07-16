@@ -5,3 +5,10 @@ window.sendNotification = (message) => {
 window.watermelon = () => {
   alert('🍉')
 }
+
+window.changeConversationId = (id = -1) => {
+  console.log(id)
+  window.appComponent.setState({
+    currentConversationId: id
+  })
+}

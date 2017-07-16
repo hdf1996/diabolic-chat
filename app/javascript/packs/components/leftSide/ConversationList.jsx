@@ -12,10 +12,11 @@ const List = styled.ul`
 
 
 class ConversationList extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      conversations: []
+      conversations: [],
+      currentConversationId: props.currentConversationId || -1
     }
   }
 
@@ -34,6 +35,18 @@ class ConversationList extends Component {
         }
       })
     })
+    this.selectCurrentConversation()
+  }
+
+  selectCurrentConversation () {
+    if(this.state.conversations.length <= 0) { return; }
+    changeConversationId(this.state.conversations[0].id)
+  }
+
+  componentWillReceiveProps (props) {
+    this.setState({
+      currentConversationId: props.currentConversationId || -1
+    })
   }
 
   componentWillMount = () => {
@@ -47,7 +60,8 @@ class ConversationList extends Component {
           this.state.conversations.map((conversation) => {
             return <ConversationItem
                       key={conversation.id}
-                      selected={conversation.id === this.props.currentConversationId}
+                      selected={conversation.id === this.state.currentConversationId}
+                      onClick={changeConversationId.bind(this, conversation.id)}
                       {...conversation} />
           })
         }

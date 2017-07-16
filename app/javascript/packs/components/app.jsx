@@ -33,11 +33,14 @@ export default class App extends React.Component {
       currentUser: {
         id: -1
       },
-      currentConversationId: 1
+      currentConversationId: -1
     }
   }
 
-  componentWillMount () { window.checkUser(this); }
+  componentWillMount () {
+    window.appComponent = this;
+    window.checkUser();
+  }
 
   render () {
     return (
