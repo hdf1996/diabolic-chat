@@ -20,18 +20,132 @@ html, body{
 }
 .main-content{
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: column;
   flex: 0 0 50%;
   background: $color2;
   .logo-container{
     text-align: center;
     align-self: center;
     width: 100%;
+    margin-top: 12.5%;
     img{
       width: 120px;
     }
   }
+  h1{
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+  }
 }
+.the-logo{
+  position: relative;
+  display: inline-block;
+  .eye{
+    background: $color2;
+    display: inline-block;
+    position: absolute;
+    height: 32px;
+    width: 48px;
+    top: 46px;
+    border-radius: 0 0 90% 90%;
+    left: 36px;
+    overflow: hidden;
+    z-index: 3;
+    .blink{
+      height: 10px;
+      width: 100%;
+      background: white;
+      left: 0;
+      position: absolute;
+      display: inline-block;
+      animation: blink 0.5s cubic-bezier(.03,.52,.34,.35);
+      animation-iteration-count: 2;
+      animation-delay: 1.5s;
+      z-index: 9;
+      &:nth-child(1){
+        top: 0px;
+        transform: translateY(-20px);
+        border-radius: 0 0 30% 30%
+      }
+      &:nth-child(2){
+        bottom: 0;
+        transform: translateY(20px);
+        border-radius:  30% 30% 0 0
+      }
+
+    }
+  }
+  .mouth{
+    height: 80%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    border-radius: 0px 0 50% 50%;
+    top: 10px;
+    overflow: hidden;
+    background: white;
+    &::after{
+      content: "";
+      background: white;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      display: inline-block;
+      animation: smile 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+  }
+  .ball{
+    position: absolute;
+    left: calc(50% - 7.5px);
+    bottom: 13px;
+    background: $color2;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 10;
+    animation: ball 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  }
+  img{
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@keyframes blink{
+  25%{
+    transform: translateY(0);
+  }
+}
+@keyframes ball{
+  0%{
+    transform: scale(0);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+
+}
+
+@keyframes smile{
+  0%{
+    background: $color1;
+    transform: translateY(90px);
+  }
+  100%{
+    background: $color1;
+    transform: translateY(0px);
+  }
+}
+
+
+
 
 .form-field{
   flex: 0 0 50%;
@@ -153,21 +267,21 @@ html, body{
   }
 }
 
-.register-form{
-  input{
-
-    // DOGE HERE invalid
-    ~.quiet-label{
-      &+.input-line{
-        &::after{
-          transform: scale(3) translate(86.5px, -7px );
-          background: $ok;
-        }
-      }
-    }
-
-  }
-}
+// .register-form{
+//   input{
+//
+//     // DOGE HERE invalid
+//     ~.quiet-label{
+//       &+.input-line{
+//         &::after{
+//           transform: scale(3) translate(86.5px, -7px );
+//           background: $ok;
+//         }
+//       }
+//     }
+//
+//   }
+// }
 
 .login-form{
   flex-direction: row;
