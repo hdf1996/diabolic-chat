@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import HeaderTop from './HeaderTop';
-import ChannelList from './ChannelList';
+import ConversationList from './ConversationList';
 
 const Header = styled.nav`
   height: 100vh;
@@ -28,7 +28,7 @@ class MenuLeft extends Component {
           Channels:
         </h2>
 
-        <ChannelList/>
+        <ConversationList/>
 
       </Header>
     );

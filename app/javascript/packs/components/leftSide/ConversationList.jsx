@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ChannelItem from './ChannelItem';
+import ConversationItem from './ConversationItem';
 
 const List = styled.ul`
   display: flex;
@@ -11,11 +11,11 @@ const List = styled.ul`
 
 
 
-class ChannelList extends Component {
+class ConversationList extends Component {
   constructor () {
     super();
     this.state = {
-      channels: []
+      conversations: []
     }
   }
 
@@ -23,7 +23,7 @@ class ChannelList extends Component {
     let response = await(fetch('/api/v1/sects'))
     let data = await(response.json());
     this.setState({
-      channels: data.map((data) => {
+      conversations: data.map((data) => {
         return {
           key: data.id,
           id: data.id,
@@ -44,8 +44,8 @@ class ChannelList extends Component {
     return (
       <List>
         {
-          this.state.channels.map((channel) => {
-            return <ChannelItem key={channel.id} {...channel}/>
+          this.state.conversations.map((conversation) => {
+            return <ConversationItem key={conversation.id} {...conversation}/>
           })
         }
       </List>
@@ -54,4 +54,4 @@ class ChannelList extends Component {
 
 }
 
-export default ChannelList;
+export default ConversationList;

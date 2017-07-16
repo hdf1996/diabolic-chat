@@ -36,7 +36,7 @@ const Item = styled.li`
 
 
 
-class ChannelItem extends Component {
+class ConversationItem extends Component {
   constructor (props) {
     super();
     this.state = {
@@ -67,4 +67,4 @@ class ChannelItem extends Component {
 
 }
 
-export default ChannelItem;
+export default ConversationItem;
