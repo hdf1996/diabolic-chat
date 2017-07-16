@@ -6,6 +6,8 @@ class Sect < ApplicationRecord
   validates :name, presence: true
   validate :limit_reached
 
+  enum type: { Channel: 0 }
+
   def limit_reached
     errors.add('users.limit_reached') if users.count >= max_size
   end

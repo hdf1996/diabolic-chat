@@ -39,34 +39,48 @@ const ChatContainer = styled.section`
 
 
 class MainChat extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      sectId: 1,
-      messages: []
+      conversationId: props.currentConversationId || -1,
+      messages: [],
+      subscription: null
     }
   }
 
   componentWillMount () {
-    Application.cable.subscriptions.create({
+    this.createSubscription();
+  }
+
+  createSubscription = () => {
+    this.state.subscription = Application.cable.subscriptions.create({
       channel: "ChatChannel",
-      room: `${this.state.sectId}_room`
+      room: `${this.state.conversationId}_room`
     },
     {
-      connected: () => { },
-      received: (item) => {
-        // this.state.messages.push(item)
-        // this.forceUpdate();
-        // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
-        // if you comment 2 lines above and use the line below it appears to work the same way (?)
-        // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
-        // You were right, take this cookie 🍪
-        if(item.user_id !== this.props.currentUser.id) {
-          sendNotification(item.body)
-        }
-        this.setState({messages:[...this.state.messages, item]});
-      }
+      received: this.handleMessage
     })
+  }
+
+  handleMessage = (item) => {
+    // this.state.messages.push(item)
+    // this.forceUpdate();
+    // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
+    // if you comment 2 lines above and use the line below it appears to work the same way (?)
+    // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
+    // You were right, take this cookie 🍪
+    if(item.user_id !== this.props.currentUser.id) {
+      sendNotification(item.body)
+    }
+    this.setState({messages:[...this.state.messages, item]});
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if(prevState.conversationId !== this.state.conversationId) {
+      this.setState({messages: []})
+      Application.cable.subscriptions.remove(this.state.subscription)
+      this.createSubscription()
+    }
   }
 
   handleEvent = function (e) {
@@ -79,12 +93,18 @@ class MainChat extends Component {
   send = async () => {
     var form = new FormData();
     form.append("message[content]", this.refs.content.value);
-    const response = await fetch(`/api/v1/sects/${this.state.sectId}/chat`, {
+    const response = await fetch(`/api/v1/sects/${this.state.conversationId}/chat`, {
       body: form,
       method: "POST",
       credentials: "same-origin"
     })
     const json = await (await response);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      conversationId: props.currentConversationId || -1
+    })
   }
 
   render() {

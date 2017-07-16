@@ -14,6 +14,9 @@ const Item = styled.li`
       transform: translateX(0);
     }
   }
+  &.selected {
+    color: green;
+  }
   .channel-name{
     display: inline-block;
     flex: 0 0 190px;
@@ -36,7 +39,7 @@ const Item = styled.li`
 
 
 
-class ChannelItem extends Component {
+class ConversationItem extends Component {
   constructor (props) {
     super();
     this.state = {
@@ -52,12 +55,25 @@ class ChannelItem extends Component {
     this.setState(props);
   }
 
+  bullet = () => {
+    if(this.state.type == 'Channel') {
+      return <div>C</div>;
+    } else {
+      return <BulletStatus connected={this.state.connected}/>
+    }
+  }
+
+  name = () => {
+    return this.state.type == 'Channel' ? `#${this.props.name}` : this.props.name
+  }
+
   render() {
+    // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
     return (
-      <Item>
-        <BulletStatus connected={this.state.connected}/>
+      <Item onClick={this.props.onClick} className={this.state.selected ? 'selected' : ''}>
+        {this.bullet()}
         <span className="channel-name">
-          {this.props.name}
+          {this.name()}
         </span>
         <div className="item-line">
         </div>
@@ -67,4 +83,4 @@ class ChannelItem extends Component {
 
 }
 
-export default ChannelItem;
+export default ConversationItem;

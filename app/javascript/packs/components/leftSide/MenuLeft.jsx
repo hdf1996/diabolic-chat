@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import HeaderTop from './HeaderTop';
-import ChannelList from './ChannelList';
+import ConversationList from './ConversationList';
 
 const Header = styled.nav`
   height: 100vh;
@@ -17,7 +17,18 @@ const Header = styled.nav`
 
 
 class MenuLeft extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      currentConversationId: props.currentConversationId || -1
+    }
+  }
 
+  componentWillReceiveProps (props) {
+    this.setState({
+      currentConversationId: props.currentConversationId || -1
+    })
+  }
 
   render() {
     return (
@@ -28,7 +39,7 @@ class MenuLeft extends Component {
           Channels:
         </h2>
 
-        <ChannelList/>
+        <ConversationList currentConversationId={this.state.currentConversationId}/>
 
       </Header>
     );

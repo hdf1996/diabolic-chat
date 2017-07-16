@@ -5,7 +5,7 @@ module Api
       before_action :set_sect, only: [:subscribe]
 
       def index
-        render json: Sect.all
+        render json: Sect.all.order(id: :asc)
       end
 
       def chat
