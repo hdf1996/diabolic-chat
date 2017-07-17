@@ -14,7 +14,7 @@ module Api
       end
 
       def messages
-        render json: Sect.find(params[:id]).messages.order(:id).limit(10)
+        render json: Sect.find(params[:id]).messages.order(id: :desc).limit(10).inverse
       end
 
       def subscribe
