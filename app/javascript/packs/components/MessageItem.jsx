@@ -98,7 +98,7 @@ class MessageItem extends Component {
             {this.state.sent_by}
           </SentBy>
           { /* Here's where we summon The Dark Lork */}
-          <MsgContent dangerouslySetInnerHTML={{__html: this.state.body}}>
+          <MsgContent dangerouslySetInnerHTML={{__html: emojify(this.state.body)}}>
           </MsgContent>
         </div>
       </MsgItem>
