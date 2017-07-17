@@ -14,5 +14,5 @@ window.changeConversationId = (id = -1) => {
 }
 
 window.emojify = (content) => {
-  return emojer(content, "<img src='https://github.global.ssl.fastly.net/images/icons/emoji/__EMOJI_NAME__.png?v5'>")
+  return emojer(twemoji.parse(content), "<img src='https://github.global.ssl.fastly.net/images/icons/emoji/__EMOJI_NAME__.png?v5'>")
 }
