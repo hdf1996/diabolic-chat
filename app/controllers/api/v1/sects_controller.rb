@@ -14,7 +14,7 @@ module Api
       end
 
       def messages
-        render json: current_user.messages.where(sect_id: params[:id]).limit(10)
+        render json: Sect.find(params[:id]).messages.limit(10)
       end
 
       def subscribe
