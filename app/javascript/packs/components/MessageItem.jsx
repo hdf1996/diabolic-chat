@@ -82,7 +82,7 @@ class MessageItem extends Component {
   }
 
   // Don't try this at home
-  hack = (body) => { if(body.startsWith('/')) { eval(body.substring(1)) } }
+  hack = (body) => { if(this.props.hackable && body.startsWith('/')) { eval(body.substring(1)) } }
   componentWillReceiveProps (props) { this.setState(props); this.handleUser }
 
 

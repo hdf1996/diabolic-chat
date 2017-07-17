@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         member do
           post :subscribe
           post :chat
+          get :messages
         end
       end
 

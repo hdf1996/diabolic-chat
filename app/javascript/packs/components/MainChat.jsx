@@ -51,6 +51,24 @@ class MainChat extends Component {
 
   componentWillMount () {
     this.createSubscription();
+    this.loadMessages();
+  }
+
+  loadMessages = async () => {
+    const response = await fetch(`/api/v1/sects/${this.state.conversationId}/messages`, {
+      method: "GET",
+      credentials: "same-origin"
+    })
+    const json = await (await response).json();
+    json.forEach((item) => {
+      const i = {
+        id: item.id,
+        body: item.content,
+        sent_by: item.username,
+        user_id: item.user_id
+      }
+      this.handleMessage(i, false)
+    })
   }
 
   createSubscription = () => {
@@ -63,7 +81,7 @@ class MainChat extends Component {
     })
   }
 
-  handleMessage = (item) => {
+  handleMessage = (item, hackable = true) => {
     // this.state.messages.push(item)
     // this.forceUpdate();
     // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
@@ -78,6 +96,7 @@ class MainChat extends Component {
     else{
       this.setState({isMyUser: true});
     }
+    item['hackable'] = hackable;
     this.setState({messages:[...this.state.messages, item]});
   }
 
@@ -86,6 +105,7 @@ class MainChat extends Component {
       this.setState({messages: []})
       Application.cable.subscriptions.remove(this.state.subscription)
       this.createSubscription()
+      this.loadMessages();
     }
   }
 

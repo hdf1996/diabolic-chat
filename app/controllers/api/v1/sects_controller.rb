@@ -13,6 +13,10 @@ module Api
         head :ok
       end
 
+      def messages
+        render json: current_user.messages.where(sect_id: params[:id]).limit(10)
+      end
+
       def subscribe
         SectSubscription.create!(user: current_user, sect: @sect)
         head :created
