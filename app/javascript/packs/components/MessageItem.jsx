@@ -4,7 +4,13 @@ import styled from 'styled-components';
 const MsgItem = styled.li`
   flex-basis: 100%;
   display: flex;
-  justify-content: ${props => props.isMyUser ? 'flex-end' : 'flex-start'} /* if it is my own user it should be flex-end, if it is other user it should be flex-start */;
+  &.mine{
+      justify-content: flex-end;
+  }
+  &.them{
+    justify-content: flex-start;
+  }
+
   div{
     background: ${props => props.theme.color4};
     color: white;
@@ -83,7 +89,7 @@ class MessageItem extends Component {
 
   render () {
     return (
-      <MsgItem isMyUser={this.state.currentUser}>
+      <MsgItem isMyUser={this.state.currentUser} className={this.state.currentUser == true ? 'mine' : 'them'}>
         <div>
           <ProfilePic>
             <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />
