@@ -58,7 +58,7 @@ class MessagesList extends Component {
 
   constructor () {
     super();
-    this.state = { messages: [] }
+    this.state = { messages: [], isMyUser: false }
   }
   componentWillReceiveProps (props) {
     this.setState(props);
@@ -74,8 +74,14 @@ class MessagesList extends Component {
         )
       }
     }
-
+    if(this.props.currentUser != this.props.user_id){
+       this.setState({isMyUser: true});
+    }
+    else{
+       this.setState({isMyUser: false});
+    }
   }
+
 
   render() {
     return (
@@ -84,7 +90,7 @@ class MessagesList extends Component {
           <MsgList id="msg-list">
             {
               this.state.messages.map((message, i) => {
-                return <MessageItem currentUser={this.props.currentUser} key={i} {...message} />
+                return <MessageItem currentUser={this.state.isMyUser} key={i} {...message} />
               })
             }
           </MsgList>
