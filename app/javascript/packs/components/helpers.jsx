@@ -13,6 +13,17 @@ window.changeConversationId = (id = -1) => {
   })
 }
 
+window.sendMessage = async (content, conversationId) => {
+  var form = new FormData();
+  form.append("message[content]", content);
+  const response = await fetch(`/api/v1/sects/${conversationId}/chat`, {
+    body: form,
+    method: "POST",
+    credentials: "same-origin"
+  })
+  const json = await (await response);
+}
+
 window.emojify = (content) => {
   return emojer(twemoji.parse(content), "<img src='https://github.global.ssl.fastly.net/images/icons/emoji/__EMOJI_NAME__.png?v5'>")
 }
