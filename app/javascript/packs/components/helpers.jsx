@@ -34,6 +34,10 @@ window.audio = (url) => {
   return audio;
 }
 
+window.rickrollit = () => {
+  
+}
+
 window.scream = () => {
   window.audio('http://soundbible.com/grab.php?id=1627&type=mp3');
 }
