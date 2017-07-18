@@ -27,3 +27,13 @@ window.sendMessage = async (content, conversationId) => {
 window.emojify = (content) => {
   return emojer(twemoji.parse(content), "<img src='https://github.global.ssl.fastly.net/images/icons/emoji/__EMOJI_NAME__.png?v5'>")
 }
+
+window.audio = (url) => {
+  let audio = new Audio('http://soundbible.com/grab.php?id=1627&type=mp3');
+  audio.play();
+  return audio;
+}
+
+window.scream = () => {
+  window.audio('http://soundbible.com/grab.php?id=1627&type=mp3');
+}
