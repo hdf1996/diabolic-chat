@@ -117,7 +117,7 @@ class MainChat extends Component {
   }
 
   send = async () => {
-    sendMessage(this.refs.content.value)
+    sendMessage(this.refs.content.value, this.state.conversationId)
   }
 
   componentWillReceiveProps(props) {

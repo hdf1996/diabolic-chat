@@ -13,10 +13,10 @@ window.changeConversationId = (id = -1) => {
   })
 }
 
-window.sendMessage = (content) => {
+window.sendMessage = async (content, conversationId) => {
   var form = new FormData();
   form.append("message[content]", content);
-  const response = await fetch(`/api/v1/sects/${this.state.conversationId}/chat`, {
+  const response = await fetch(`/api/v1/sects/${conversationId}/chat`, {
     body: form,
     method: "POST",
     credentials: "same-origin"
