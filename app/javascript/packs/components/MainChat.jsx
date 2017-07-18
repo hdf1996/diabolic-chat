@@ -117,14 +117,7 @@ class MainChat extends Component {
   }
 
   send = async () => {
-    var form = new FormData();
-    form.append("message[content]", this.refs.content.value);
-    const response = await fetch(`/api/v1/sects/${this.state.conversationId}/chat`, {
-      body: form,
-      method: "POST",
-      credentials: "same-origin"
-    })
-    const json = await (await response);
+    sendMessage(this.refs.content.value)
   }
 
   componentWillReceiveProps(props) {
