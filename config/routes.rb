@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     registrations: :registrations
   }
   root 'static#index'
-  get :teapot, to: 'static#teapot'
+
+  authenticate :user do
+    resources :chats, only: [:index]
+  end
 
   namespace :api do
     namespace :v1 do
