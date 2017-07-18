@@ -29,7 +29,7 @@ window.emojify = (content) => {
 }
 
 window.audio = (url) => {
-  let audio = new Audio('http://soundbible.com/grab.php?id=1627&type=mp3');
+  let audio = new Audio(url);
   audio.play();
   return audio;
 }
