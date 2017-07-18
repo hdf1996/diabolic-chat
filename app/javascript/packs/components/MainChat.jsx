@@ -126,7 +126,7 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <MessagesList itemId={this.state.itemId} currentUser={this.props.currentUser.id} messages={this.state.messages} />
+          <MessagesList currentUser={this.props.currentUser.id} messages={this.state.messages} />
           <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
             <input ref="content"
                    autoFocus

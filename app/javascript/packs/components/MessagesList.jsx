@@ -85,7 +85,7 @@ class MessagesList extends Component {
           <MsgList id="msg-list">
             {
               this.state.messages.map((message, i) => {
-                return <MessageItem itemId={this.props.itemId} currentUser={this.props.currentUser} key={i} {...message} />
+                return <MessageItem  currentUser={this.props.currentUser} key={i} {...message} />
               })
             }
           </MsgList>
