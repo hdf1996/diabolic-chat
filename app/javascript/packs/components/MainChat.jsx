@@ -45,7 +45,7 @@ class MainChat extends Component {
       conversationId: props.currentConversationId || -1,
       messages: [],
       subscription: null,
-      isMyUser: true
+      itemId: 0
     }
   }
 
@@ -90,12 +90,9 @@ class MainChat extends Component {
     // You were right, take this cookie 🍪
     if(item.user_id !== this.props.currentUser.id) {
       sendNotification(item.body);
-      this.setState({isMyUser: false});
+    }
+    this.setState({itemId: item.user_id})
 
-    }
-    else{
-      this.setState({isMyUser: true});
-    }
     item['hackable'] = hackable;
     this.setState({messages:[...this.state.messages, item]});
   }
@@ -136,7 +133,7 @@ class MainChat extends Component {
   render() {
     return (
         <ChatContainer>
-          <MessagesList currentUser={this.state.isMyUser} messages={this.state.messages} />
+          <MessagesList itemId={this.state.itemId} currentUser={this.props.currentUser.id} messages={this.state.messages} />
           <form autoComplete="off" onSubmit={this.handleEvent.bind(this)}>
             <input ref="content"
                    autoFocus

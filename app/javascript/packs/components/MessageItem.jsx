@@ -89,7 +89,7 @@ class MessageItem extends Component {
 
   render () {
     return (
-      <MsgItem isMyUser={this.state.currentUser} className={this.state.currentUser == true ? 'mine' : 'them'}>
+      <MsgItem className={this.props.itemId == this.props.currentUser ? 'mine' : 'them'}>
         <div>
           <ProfilePic>
             <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />
