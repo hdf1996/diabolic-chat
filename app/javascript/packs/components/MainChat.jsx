@@ -67,7 +67,7 @@ class MainChat extends Component {
         sent_by: item.username,
         user_id: item.user_id
       }
-      this.handleMessage(i, false)
+      this.handleMessage(i, false, false)
     })
   }
 
@@ -81,14 +81,14 @@ class MainChat extends Component {
     })
   }
 
-  handleMessage = (item, hackable = true) => {
+  handleMessage = (item, hackable = true, notification = true) => {
     // this.state.messages.push(item)
     // this.forceUpdate();
     // ☸☸☸☸☸☸☸☸☸☸☸☸☸ DOGE ATENTION ☸☸☸☸☸☸☸☸☸☸☸☸☸
     // if you comment 2 lines above and use the line below it appears to work the same way (?)
     // 🍉🍉🍉🍉🍉🍉🍉🍉 WATERMELON ATTENTION 🍉🍉🍉🍉🍉🍉
     // You were right, take this cookie 🍪
-    if(item.user_id !== this.props.currentUser.id) {
+    if(notification && item.user_id !== this.props.currentUser.id) {
       sendNotification(item.body);
     }
     this.setState({itemId: item.user_id})
