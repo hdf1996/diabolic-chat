@@ -6,4 +6,6 @@ class StaticController < ApplicationController
       render :index
     end
   end
+
+  def teapot; end
 end

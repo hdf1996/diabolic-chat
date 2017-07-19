@@ -27,3 +27,17 @@ window.sendMessage = async (content, conversationId) => {
 window.emojify = (content) => {
   return emojer(twemoji.parse(content), "<img src='https://github.global.ssl.fastly.net/images/icons/emoji/__EMOJI_NAME__.png?v5'>")
 }
+
+window.audio = (url) => {
+  let audio = new Audio(url);
+  audio.play();
+  return audio;
+}
+
+window.rickrollit = () => {
+  $("*").append('<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe> ');
+}
+
+window.scream = () => {
+  window.audio('http://soundbible.com/grab.php?id=1627&type=mp3');
+}

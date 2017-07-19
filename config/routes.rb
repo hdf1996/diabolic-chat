@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :chats, only: [:index]
   end
+
   namespace :api do
     namespace :v1 do
       resources :sects, only: [:index] do
