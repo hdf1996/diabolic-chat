@@ -87,7 +87,7 @@ class MessageItem extends Component {
     return (
       <MsgItem myUser={this.props.user_id === this.props.currentUser ? true : false}>
         <div>
-          <ProfilePic>
+          <ProfilePic myUser={this.props.user_id === this.props.currentUser ? true : false}>
             <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />
           </ProfilePic>
           <SentBy>
