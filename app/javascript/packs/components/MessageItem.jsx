@@ -54,7 +54,7 @@ const MsgContent = styled.span`
 const ProfilePic = styled.figure`
   position: absolute;
   /*this must change to left if the message is not from me*/
-  ${props => props.myUser ? 'left: 0' : 'right: 0'};
+  ${props => props.myUser ? 'right: 0' : 'left: 0'};
   bottom: 0;
   background: ${props => props.theme.color3};
   border-radius: 50%;
