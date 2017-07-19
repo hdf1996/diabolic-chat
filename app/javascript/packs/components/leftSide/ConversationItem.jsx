@@ -9,13 +9,15 @@ const Item = styled.li`
   cursor: pointer;
   position: relative;
   padding: 30px 0;
-  &:hover{
-    .item-line{
-      transform: translateX(0);
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+  &:hover:not(.selected){
+    > div:first-of-type{
+      transform: scale(1);
     }
   }
   &.selected {
-    color: green;
+    text-shadow: 0px 0px 5px rgba(255,255,255,0.8);
   }
   .channel-name{
     display: inline-block;
@@ -23,18 +25,9 @@ const Item = styled.li`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: 0.3s ease;
   }
-  .item-line{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    background: white;
-    box-shadow: 0px 0px 5px rgba(255,255,255,0.8);
-    transform: translateX(-100%);
-    transition: 0.3s cubic-bezier(.77,0,.18,1);
-  }
+
 `;
 
 
@@ -58,19 +51,24 @@ class ConversationItem extends Component {
   bullet = () => {
     if(this.state.type == 'Channel') {
       // Habria que cambiar ese div de abajo por un bullet status, pero con el iconito de channel
-      return <BulletStatus type="channel" connected={this.state.connected}/>;
+      return <BulletStatus type="channel" selected={this.state.selected} connected={this.state.connected}/>;
     } else {
-      return <BulletStatus type="direct" connected={this.state.connected}/>
+      return <BulletStatus type="direct" selected={this.state.selected} connected={this.state.connected}/>
     }
   }
 
   name = () => {
-    return this.state.type == 'Channel' ? `#${this.props.name}` : this.props.name
+    //return this.state.type == 'Channel' ? `${this.props.name}` : this.props.name
+    // ya estoy evaluando en bullet() si es un channel o un direct message
+    return this.props.name
   }
 
   render() {
     return (
       <Item onClick={this.props.onClick} className={this.state.selected ? 'selected' : ''}>
+        {/* <p>
+          {this.state.unreadMessagesCount}
+        </p> */}
         {this.bullet()}
         <span className="channel-name">
           {this.name()}

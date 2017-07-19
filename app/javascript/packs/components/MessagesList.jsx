@@ -30,6 +30,19 @@ const MsgList = styled.ul`
     background: linear-gradient(to bottom,  rgba(35,35,69,1) 0%,rgba(161,219,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232345', endColorstr='#00a1dbff',GradientType=0 );
   }
+
+  ${'' /* animation: start-list 1.5s ease;
+
+  @keyframes start-list {
+    0%{
+      opacity: 0;
+    }
+
+    100%{
+      opacity: 1;
+    }
+
+  } */}
 `;
 const Overflow = styled.div`
   display: flex;
@@ -38,6 +51,7 @@ const Overflow = styled.div`
   flex-direction: row;
   align-items: flex-end;
   position: relative;
+
 `;
 const Gradient = styled.div`
   background: linear-gradient(to bottom,  rgba(29,31,52,1) 25%,rgba(142,174,178,0) 100%);

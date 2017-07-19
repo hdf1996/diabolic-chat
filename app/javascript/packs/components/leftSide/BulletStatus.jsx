@@ -5,8 +5,10 @@ const Bullet = styled.div`
     display: inline-block;
     width: 15px;
     height: 15px;
-    margin: 0 10px;
+    margin: 0 15px;
     border-radius: 50%;
+    transition: 0.3s ease;
+    transform: ${props => props.theme.transform};
     background: ${props => props.theme.backgroundColor};
     opacity: ${props => props.theme.opacity};
     box-shadow: ${props => props.theme.shadow};
@@ -14,7 +16,8 @@ const Bullet = styled.div`
 
 const offline = {
 	backgroundColor: "white",
-  opacity: 0.5
+  opacity: 0.5,
+  transform: "scale(0.7)"
 };
 
 const alert = {
@@ -25,7 +28,8 @@ const alert = {
 
 const online = {
 	backgroundColor: "#7FEC99",
-  opacity: 1
+  opacity: 1,
+  transform: "scale(1)"
 };
 
 class BulletStatus extends Component {
@@ -39,7 +43,7 @@ class BulletStatus extends Component {
   componentWillReceiveProps (props) { this.setState(props); }
 
   render() {
-    const theme = this.state.connected ? online : offline;
+    const theme = this.state.connected || this.props.selected ? online : offline;
     return (
       <ThemeProvider theme={theme}>
         <Bullet />
