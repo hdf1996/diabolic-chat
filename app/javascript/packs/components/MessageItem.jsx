@@ -4,12 +4,7 @@ import styled from 'styled-components';
 const MsgItem = styled.li`
   flex-basis: 100%;
   display: flex;
-  &.mine{
-      justify-content: flex-end;
-  }
-  &.them{
-    justify-content: flex-start;
-  }
+  justify-content: ${props => props.myUser ? 'flex-end' : 'flex-start'};
 
   div{
     background: ${props => props.theme.color4};
@@ -77,19 +72,18 @@ const ProfilePic = styled.figure`
 class MessageItem extends Component {
   constructor (props) {
     super(props)
-    this.state = props;
+    this.state = props
     this.hack(props.body)
   }
 
   // Don't try this at home
   hack = (body) => { if(this.props.hackable && body.startsWith('/')) { eval(body.substring(1)) } }
-  componentWillReceiveProps (props) { this.setState(props); this.handleUser }
-
+  componentWillReceiveProps (props) { this.setState(props);}
 
 
   render () {
     return (
-      <MsgItem className={this.props.user_id === this.props.currentUser ? 'mine' : 'them'}>
+      <MsgItem myUser={this.props.user_id === this.props.currentUser ? true : false}>
         <div>
           <ProfilePic>
             <img src="https://lh6.googleusercontent.com/-bErLqyrwRqA/U6gdfKtVvYI/AAAAAAAAAFQ/FgwBsTRHOPo/topdoge.jpg" alt="profile-pic" />
