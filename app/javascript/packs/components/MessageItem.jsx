@@ -9,15 +9,15 @@ const MsgItem = styled.li`
   div{
     background: ${props => props.theme.color4};
     color: white;
-    min-width: 250px;
+    min-width: 300px;
     max-width: 70%;
     padding: 15px;
-    padding-left: ${props => props.myUser ? '0' : '70px'};
-    padding-right: ${props => props.myUser ? '70px' : '0'};
+    padding-left: ${props => props.myUser ? '15px' : '70px'};
+    padding-right: ${props => props.myUser ? '70px' : '15px'};
     box-sizing: border-box;
     margin: 20px 0;
     position: relative;
-    border-radius: 25px 0 25px 0;
+    border-radius: ${props => props.myUser ? '0 0 20px 0' : '0 0 20px 0'};
     overflow: hidden;
   }
   &:last-of-type{
@@ -38,7 +38,7 @@ const MsgItem = styled.li`
   }
 `;
 const SentBy = styled.span`
-  color: /*here it should be the color assigned to the user*/ red;
+  color: /*here it should be the color assigned to the user*/ #6e73d1;
   display: block;
   margin: 5px 10px;
 `;
