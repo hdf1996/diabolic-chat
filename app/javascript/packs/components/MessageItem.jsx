@@ -12,7 +12,8 @@ const MsgItem = styled.li`
     min-width: 250px;
     max-width: 70%;
     padding: 15px;
-    padding-right: 70px;
+    padding-left: ${props => props.myUser ? '0' : '70px'};
+    padding-right: ${props => props.myUser ? '70px' : '0'};
     box-sizing: border-box;
     margin: 20px 0;
     position: relative;
@@ -47,12 +48,14 @@ const MsgContent = styled.span`
   display: block;
   margin: 5px 10px;
   line-height: 25px;
+  word-wrap: break-word;
 `;
 
 const ProfilePic = styled.figure`
   position: absolute;
   /*this must change to left if the message is not from me*/
-  right: 0;
+  right: ${props => props.myUser ? '0' : 'inherit'};
+  left: ${props => props.myUser ? 'inherit' : '0'};
   bottom: 0;
   background: ${props => props.theme.color3};
   border-radius: 50%;
