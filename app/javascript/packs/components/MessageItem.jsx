@@ -55,7 +55,7 @@ const ProfilePic = styled.figure`
   position: absolute;
   /*this must change to left if the message is not from me*/
   right: ${props => props.myUser ? '' : 0};
-  left: ${props => props.myUser ? 0 : ''};
+  left: ${props => props.myUser ? '' : 0};
   bottom: 0;
   background: ${props => props.theme.color3};
   border-radius: 50%;
