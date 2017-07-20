@@ -17,7 +17,7 @@ const MsgItem = styled.li`
     box-sizing: border-box;
     margin: 20px 0;
     position: relative;
-    border-radius: ${props => props.myUser ? '0 0 20px 0' : '0 0 20px 0'};
+    border-radius: ${props => props.myUser ? '0 0 20px 0' : '0 0 0 20px'};
     overflow: hidden;
   }
   &:first-of-type{
