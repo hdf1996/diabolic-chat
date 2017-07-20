@@ -9,12 +9,11 @@ const Header = styled.nav`
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  background: ${props => props.theme.color1};
+  background: ${props => props.theme.color3};
   min-height: 100px;
   margin-bottom: 50px;
   > *{
     flex: 0 0 33%;
-    overflow: hidden;
   }
 `;
 
