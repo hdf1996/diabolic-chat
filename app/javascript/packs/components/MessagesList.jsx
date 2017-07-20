@@ -12,7 +12,7 @@ const MsgList = styled.ul`
   align-items: flex-end;
   padding: 15px;
   box-sizing: border-box;
-  max-height: calc(100vh - 85px);
+  max-height: calc(100vh - 115px);
   overflow-y: auto;
   max-width: 680px;
   margin: 0 auto;

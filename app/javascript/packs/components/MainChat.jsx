@@ -24,6 +24,7 @@ const ChatContainer = styled.section`
     max-width: 680px;
     margin: 0 auto;
     margin-bottom: 30px;
+    margin-top: 30px;
     position: relative;
     input{
       flex: 1 1 100%;
@@ -43,9 +44,7 @@ const ChatContainer = styled.section`
       border: 1px solid ${props => props.theme.color1};
       top: 3px;
       cursor: pointer;
-      &:active, &:focus{
-        outline: none;
-      }
+
       svg{
         transform: scale(0.8);
         transition: 0.3s ease;

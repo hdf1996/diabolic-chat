@@ -20,10 +20,13 @@ const MsgItem = styled.li`
     border-radius: ${props => props.myUser ? '0 0 20px 0' : '0 0 20px 0'};
     overflow: hidden;
   }
+  &:first-of-type{
+    margin-top: 90px;
+  }
   &:last-of-type{
     div{
       animation: show-up 0.5s ease;
-      margin-bottom: 100px;
+      margin-bottom: 50px;
     }
   }
   @keyframes show-up{
