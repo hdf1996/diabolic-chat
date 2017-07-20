@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
+
 $color1: lighten(#232345, 20);
 $color2: #232345;
 $ok: #88E49B;
@@ -10,6 +12,7 @@ $ok: #88E49B;
 
 html, body{
   height: 100%;
+  font-family: 'Ubuntu', sans-serif !important;
 }
 
 .main-container{
