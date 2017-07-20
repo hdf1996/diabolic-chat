@@ -7,7 +7,7 @@ const Header = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   background: ${props => props.theme.color3};
   min-height: 100px;
@@ -35,13 +35,13 @@ class HeaderTop extends Component {
     const isVisible = this.state.signUp;
     return (
       <Header>
-        <button>
+        {/* <button>
           Gear
-        </button>
+        </button> */}
         <Logo />
-        <button>
+        {/* <button>
           Profile
-        </button>
+        </button> */}
 
         {/* <button onClick={this.signUpModal}>
           Sign up
