@@ -14,6 +14,7 @@ const Header = styled.nav`
   background: ${props => props.theme.color1};
   > h2{
     margin: 5px 0 15px 15px;
+    font-size: 0.75em;
   }
 `;
 
@@ -39,7 +40,7 @@ class MenuLeft extends Component {
         <HeaderTop />
 
         <h2>
-          Channels
+          My conversations
         </h2>
 
         <ConversationList currentConversationId={this.state.currentConversationId}/>
