@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Logo from './Logo';
 // import SignUp from './SignUp';
 
 const Header = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   width: 100%;
   background: ${props => props.theme.color1};
   min-height: 100px;
+  margin-bottom: 50px;
   > *{
-    flex: 1;
+    flex: 0 0 33%;
+    overflow: hidden;
   }
 `;
 
@@ -36,9 +39,7 @@ class HeaderTop extends Component {
         <button>
           Gear
         </button>
-        <a href="#">
-          Logo
-        </a>
+        <Logo />
         <button>
           Profile
         </button>

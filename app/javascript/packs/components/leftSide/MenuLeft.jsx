@@ -12,6 +12,9 @@ const Header = styled.nav`
   flex-direction: column;
   color: white;
   background: ${props => props.theme.color1};
+  > h2{
+    margin: 5px 0 15px 15px;
+  }
 `;
 
 
@@ -36,7 +39,7 @@ class MenuLeft extends Component {
         <HeaderTop />
 
         <h2>
-          Channels:
+          Channels
         </h2>
 
         <ConversationList currentConversationId={this.state.currentConversationId}/>
