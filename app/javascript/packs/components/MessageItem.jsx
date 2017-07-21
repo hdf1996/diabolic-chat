@@ -44,6 +44,7 @@ const SentBy = styled.span`
   color: /*here it should be the color assigned to the user*/ #6e73d1;
   display: block;
   margin: 5px 10px;
+  font-weight: 500;
 `;
 
 const MsgContent = styled.span`

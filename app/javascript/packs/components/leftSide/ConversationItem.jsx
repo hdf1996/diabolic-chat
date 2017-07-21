@@ -26,6 +26,7 @@ const Item = styled.li`
     text-overflow: ellipsis;
     white-space: nowrap;
     transition: 0.3s ease;
+    font-weight: 500;
   }
 
 `;
