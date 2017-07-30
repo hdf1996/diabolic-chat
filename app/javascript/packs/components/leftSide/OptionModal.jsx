@@ -49,8 +49,13 @@ class OptionModal extends Component {
     // this.optionModal = this.optionModal.bind(this);
   }
   changeDarkTheme = () =>{
-    console.log("hola");
+    localStorage.setItem('theme', 'darkTheme');
   }
+
+  changeDefaultTheme = () =>{
+    localStorage.setItem('theme', 'defaultTheme');
+  }
+
 
   render() {
     return (
@@ -65,6 +70,11 @@ class OptionModal extends Component {
           <button onClick={this.changeDarkTheme}>
             Dark theme
           </button>
+
+          <button onClick={this.changeDefaultTheme}>
+            Default theme
+          </button>
+
         </div>
 
       </OptionModalContainer>

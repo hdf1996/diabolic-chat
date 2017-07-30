@@ -44,7 +44,7 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <ThemeProvider theme={colorTheme}>
+      <ThemeProvider theme={localStorage.theme == 'darkTheme' ? darkTheme : colorTheme}>
         <MainContainer>
           <NotificationBar/>
           <MenuLeft
