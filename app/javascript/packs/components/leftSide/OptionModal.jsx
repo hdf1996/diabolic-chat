@@ -12,7 +12,34 @@ const OptionModalContainer = styled.nav`
   height: 100%;
   left: 0;
   top: 0;
+  > div{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 350px;
+    width: 100%;
+    max-width: 700px;
+    color: black;
+  }
+
 `;
+
+const CloseButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 32px;
+  color: black;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+`;
+
+
 
 
 class OptionModal extends Component {
@@ -21,11 +48,24 @@ class OptionModal extends Component {
     // this.state = {option : "hidden"}
     // this.optionModal = this.optionModal.bind(this);
   }
+  changeDarkTheme = () =>{
+    console.log("hola");
+  }
 
   render() {
     return (
       <OptionModalContainer>
-        hola
+        <div>
+          <CloseButton className="hola">
+            ×
+          </CloseButton>
+          <h2>
+            Change theme:
+          </h2>
+          <button onClick={this.changeDarkTheme}>
+            Dark theme
+          </button>
+        </div>
 
       </OptionModalContainer>
     );
