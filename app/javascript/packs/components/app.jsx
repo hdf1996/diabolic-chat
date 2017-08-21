@@ -22,8 +22,10 @@ const colorTheme = {
 };
 // changin my theme
 const darkTheme = {
-	color1: "black",
-	color2: "red"
+	color1: "#202529",
+	color3: "#1e1d1d",
+	color2: "#181818",
+	color4: "#010101",
 };
 
 export default class App extends React.Component {
