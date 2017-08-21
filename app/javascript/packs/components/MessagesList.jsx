@@ -53,8 +53,11 @@ const Overflow = styled.div`
   position: relative;
 
 `;
+
+
+
 const Gradient = styled.div`
-  background: linear-gradient(to bottom,  rgba(29,31,52,1) 25%,rgba(142,174,178,0) 100%);
+  background: linear-gradient(to bottom, ${props => props.theme.color1} 25%, rgba(0,0,0,0) 100%);
   position: absolute;
   top: 0;
   left: 0;
