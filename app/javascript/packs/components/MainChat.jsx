@@ -35,13 +35,13 @@ const ChatContainer = styled.section`
     }
     button{
       width: 50px;
-      background: ${props => props.theme.color1};
+      background: ${props => props.theme.btnPrimary};
       border: none;
       border-radius: 50%;
       position: absolute;
       right: 5px;
       height: 50px;
-      border: 1px solid ${props => props.theme.color1};
+      border: 1px solid ${props => props.theme.btnPrimary};
       top: 3px;
       cursor: pointer;
 

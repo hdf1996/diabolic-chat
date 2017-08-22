@@ -46,7 +46,7 @@ class OptionModal extends Component {
   constructor(){
     super();
     // this.state = {option : "hidden"}
-    // this.optionModal = this.optionModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   changeDarkTheme = () =>{
     localStorage.setItem('theme', 'darkTheme');
@@ -56,12 +56,20 @@ class OptionModal extends Component {
     localStorage.setItem('theme', 'defaultTheme');
   }
 
+  closeModal = () =>{
+    if (this.props.handleOnClose) {
+      this.props.handleOnClose()
+    }
+  }
 
   render() {
+    if(this.props.isActive != "visible"){
+      return null
+    }
     return (
       <OptionModalContainer>
         <div>
-          <CloseButton className="hola">
+          <CloseButton onClick={this.closeModal}>
             ×
           </CloseButton>
           <h2>
