@@ -39,18 +39,33 @@ export default class App extends React.Component {
       currentUser: {
         id: -1
       },
-      currentConversationId: -1
+      currentConversationId: -1,
+      currentTheme: colorTheme
+    }
+    this.handleTheme = this.handleTheme.bind(this);
+  }
+
+  handleTheme = () => {
+    if(localStorage.theme == "darkTheme"){
+      return darkTheme;
+    }
+    else{
+      return colorTheme;
     }
   }
+
 
   componentWillMount () {
     window.appComponent = this;
     window.checkUser();
+    // this.handleTheme
   }
 
+
   render () {
+
     return (
-      <ThemeProvider theme={localStorage.theme == 'darkTheme' ? darkTheme : colorTheme}>
+      <ThemeProvider theme={this.handleTheme} handleTheme = {this.handleTheme}>
         <MainContainer>
           <NotificationBar/>
           <MenuLeft
