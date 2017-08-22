@@ -19,15 +19,17 @@ const colorTheme = {
 	color2: "#1D1F34",
 	color3: "#151424",
   color4: "#232345",
-  btnPrimary: "#18192B"
+  btnPrimary: "#18192B",
+  scrollBar: "#232345"
 };
 // changin my theme
 const darkTheme = {
-	color1: "#202529",
+	color1: "#171717",
 	color3: "#1e1d1d",
 	color2: "#181818",
-	color4: "#010101",
-	btnPrimary: "#FF476A"
+	color4: "#151515",
+	btnPrimary: "#FF476A",
+	scrollBar: "#FF476A"
 };
 
 export default class App extends React.Component {

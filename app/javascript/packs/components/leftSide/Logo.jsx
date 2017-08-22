@@ -9,11 +9,13 @@ const LogoContainer = styled.figure`
   flex-basis: 80px;
   transform: translateY(10px);
   > a{
-    border-radius: 50% 50% 0% 0%;
+    border-radius: 50%;
     display: flex;
     align-items: flex-end;
-    height: 70px;
+    height: 100px;
     width: 100px;
+    position: relative;
+    top: 20px;
     background: ${props => props.theme.color1};
     &:hover{
       .blink{

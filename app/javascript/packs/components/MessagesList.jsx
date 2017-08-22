@@ -27,7 +27,7 @@ const MsgList = styled.ul`
   }
   &::-webkit-scrollbar-thumb{
   	border-radius: 10px;
-    background: linear-gradient(to bottom,  rgba(35,35,69,1) 0%,rgba(161,219,255,0) 100%);
+    background: linear-gradient(to bottom, ${props => props.theme.scrollBar}  0%, rgba(0,0,0,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232345', endColorstr='#00a1dbff',GradientType=0 );
   }
 
