@@ -61,14 +61,26 @@ export default class App extends React.Component {
     // this.handleTheme
   }
 
+  changeTheme = () =>{
+    if(this.state.currentTheme == colorTheme){
+      this.setState({currentTheme: darkTheme})
+    }
+
+    else{
+      this.setState({currentTheme: colorTheme})
+    }
+
+  }
 
   render () {
 
     return (
-      <ThemeProvider theme={this.handleTheme} handleTheme = {this.handleTheme}>
+      // DOGE HERE, OK SO YOU CAN CHOOSE SETSTATE BUT FUCK LOCALSTORAGE? OR YOU CAN FIND A WAY TO STORE AN OBJECT WITH LOCALSTORAGE, OR JUST USE LOCALSTORAGE WITHOUT SETSTATE(FUCK DYNAMICS? NO WAY BRO...)
+      <ThemeProvider theme={this.state.currentTheme} /*theme={this.handleTheme}*/ changeTheme = {this.handleTheme}>
         <MainContainer>
           <NotificationBar/>
           <MenuLeft
+            changeTheme ={this.changeTheme}
             currentConversationId={this.state.currentConversationId} />
           <MainChat
             currentConversationId={this.state.currentConversationId}

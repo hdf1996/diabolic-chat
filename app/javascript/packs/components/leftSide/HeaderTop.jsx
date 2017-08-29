@@ -78,6 +78,11 @@ class HeaderTop extends Component {
       this.setState({option:"visible"});
     }
   }
+  changingTheme = () => {
+    if (this.props.changeTheme) {
+      this.props.changeTheme()
+    }
+  }
 
   render() {
     return (
@@ -103,7 +108,7 @@ class HeaderTop extends Component {
         {
           this.state.option == "visible"
           ?
-            <OptionModal isActive={this.state.option} handleOnClose ={this.toggleModal} />
+            <OptionModal isActive={this.state.option} changeTheme = {this.changingTheme} handleOnClose ={this.toggleModal} />
           : null
         }
 

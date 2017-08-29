@@ -49,11 +49,18 @@ class OptionModal extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
   changeDarkTheme = () =>{
-    localStorage.setItem('theme', 'darkTheme');
+    localStorage.setItem('theme', 'darkTheme');    
+    if (this.props.changeTheme) {
+      this.props.changeTheme()
+    }
+
   }
 
   changeDefaultTheme = () =>{
     localStorage.setItem('theme', 'defaultTheme');
+    if (this.props.changeTheme) {
+      this.props.changeTheme()
+    }
   }
 
   closeModal = () =>{

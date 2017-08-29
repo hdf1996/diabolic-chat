@@ -34,10 +34,16 @@ class MenuLeft extends Component {
     })
   }
 
+  changingTheme = () =>{
+    if (this.props.changeTheme) {
+      this.props.changeTheme()
+    }
+  }
+
   render() {
     return (
       <Header>
-        <HeaderTop />
+        <HeaderTop changeTheme = {this.changingTheme} />
 
         <h2>
           My conversations
