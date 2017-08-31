@@ -34,7 +34,7 @@ const OptionModalContainer = styled.nav`
       outline: none;
       border: none;
       box-shadow: none;
-      
+
     }
   }
   > div{
@@ -86,6 +86,7 @@ class OptionModal extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
   changeTheme = () =>{
+    localStorage.setItem('theme', 'darkTheme');
     const currentTheme = localStorage.getItem('theme');
     if(currentTheme == "defaultTheme"){
       localStorage.setItem('theme', 'darkTheme');
