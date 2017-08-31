@@ -43,9 +43,10 @@ export default class App extends React.Component {
         id: -1
       },
       currentConversationId: -1,
-      currentTheme: localStorage.getItem('theme') == 'defaultTheme' ? colorTheme : darkTheme
+      currentTheme: localStorage.getItem('theme') == 'darkTheme' ? darkTheme : colorTheme
     }
     this.handleTheme = this.handleTheme.bind(this);
+    localStorage.setItem('theme', 'defaultTheme');
   }
 
   handleTheme = () => {
