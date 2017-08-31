@@ -11,6 +11,9 @@ const MainContainer = styled.main`
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  *{
+    transition: 0.5s ease;
+  }
 `;
 
 // changin my theme
@@ -40,7 +43,7 @@ export default class App extends React.Component {
         id: -1
       },
       currentConversationId: -1,
-      currentTheme: colorTheme
+      currentTheme: localStorage.getItem('theme') == 'defaultTheme' ? colorTheme : darkTheme
     }
     this.handleTheme = this.handleTheme.bind(this);
   }
@@ -69,13 +72,11 @@ export default class App extends React.Component {
     else{
       this.setState({currentTheme: colorTheme})
     }
-
   }
 
   render () {
 
     return (
-      // DOGE HERE, OK SO YOU CAN CHOOSE SETSTATE BUT FUCK LOCALSTORAGE? OR YOU CAN FIND A WAY TO STORE AN OBJECT WITH LOCALSTORAGE, OR JUST USE LOCALSTORAGE WITHOUT SETSTATE(FUCK DYNAMICS? NO WAY BRO...)
       <ThemeProvider theme={this.state.currentTheme} /*theme={this.handleTheme}*/ changeTheme = {this.handleTheme}>
         <MainContainer>
           <NotificationBar/>
