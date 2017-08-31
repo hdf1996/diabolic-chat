@@ -46,7 +46,9 @@ export default class App extends React.Component {
       currentTheme: localStorage.getItem('theme') == 'darkTheme' ? darkTheme : colorTheme
     }
     this.handleTheme = this.handleTheme.bind(this);
-    localStorage.setItem('theme', 'defaultTheme');
+    if(localStorage.getItem('theme') == null){
+      localStorage.setItem('theme', 'defaultTheme');
+    }
   }
 
   handleTheme = () => {
