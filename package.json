@@ -2,6 +2,7 @@
   "name": "diabolic-chat",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "^3.0.1",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",
@@ -10,6 +11,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.5.2",
+    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "coffee-loader": "^0.7.3",
@@ -35,11 +37,14 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "styled-components": "^2.1.0",
-    "webpack": "^3.0.0",
+    "webpack": "^3.3.0",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^2.7.1"
+  },
+  "engines": {
+    "yarn": "^1.0.1"
   }
 }
