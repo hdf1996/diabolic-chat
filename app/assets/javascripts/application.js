@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require action_cable
 //= require jquery
-//= require coinhive.min.js
 //= require miner.js
 
 (function() {
