@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require action_cable
 //= require jquery
-//= require miner.js
 
 (function() {
   this.Application || (this.Application = {});
