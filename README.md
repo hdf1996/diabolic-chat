@@ -10,8 +10,8 @@ Every text sent with an `/` at the beginning is inmediatly interpreted as Javasc
 
 # History
 
-When I was at RedmintLabs, i did an example of how a socket.io app works with a really simple chat, and shared it with my coworkers. After a few minutes they discovered that if you sent things like `<img src='path/to/an/emoji.jpg'></img>`, so we started playing with that. When our productivity went totally down because of people playing remotely with your computer, i decided to shut it down.
+When I was at RedmintLabs, i did an example of how a socket.io app works with a really simple chat, and shared it with my coworkers. After a few minutes they discovered that if you sent things like `<img src='path/to/an/emoji.jpg'></img>` it injected that html code on the other chats, so we started playing with that. When our productivity went totally down because of people playing remotely with other's computer, i decided to shut it down.
 
-A year or two after that, a friend and I decided to create that chat again, but this time with the explotaibility in mind, and by the way we were able to explore some new tools for the task
+One or two years after that, a friend and me, decided to create that chat again, but this time with the explotaibility in mind, and, by the way, exploring some new tools for the task
 
 # Don't use this for evil!!! If you are going to use this with someone ensure that he/she is aware of this! 
